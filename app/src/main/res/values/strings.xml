@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EquipmentRentalService</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+</resources>

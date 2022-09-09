@@ -17,7 +17,6 @@ public class UserRent5Activity extends AppCompatActivity {
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-
     private EditText eTxtFeedbackPopUp;
     private Button btnSubmitPopUp;
     private Button btnReturnPopUp ;
@@ -44,7 +43,6 @@ public class UserRent5Activity extends AppCompatActivity {
         });
     }
 
-
     public void createFeedbackDialog(){
         dialogBuilder = new AlertDialog.Builder(this);
         final View feedbackPopUPView = getLayoutInflater().inflate(R.layout.popupfeedback, null);
@@ -70,10 +68,5 @@ public class UserRent5Activity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
-
     }
-
-
-
 }

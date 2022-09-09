@@ -2,25 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutUserRentals"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userpackage.UserRentalsActivity">
-
-    <Button
-        android:id="@+id/btnReturnUserRentals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Return"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+    tools:context=".UserRent5Activity">
 
     <TextView
-        android:id="@+id/txtUserRentalstTitle"
+        android:id="@+id/txtUserRentalstTitle2"
         android:layout_width="155dp"
         android:layout_height="31dp"
         android:gravity="center"
@@ -35,14 +22,27 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <Button
-        android:id="@+id/btnAddFeedback"
+        android:id="@+id/btnReturnUserRentals2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="456dp"
+        android:text="Return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <Button
+        android:id="@+id/btnAddFeedback2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
         android:text="Add Feedback"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserRentalstTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUserRentalstTitle2"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

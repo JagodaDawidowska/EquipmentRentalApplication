@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.RegisterActivity;
+import com.jdawidowska.equipmentrentalservice.UserRent5Activity;
+import com.jdawidowska.equipmentrentalservice.adminpackage.RentalsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +44,7 @@ public class MenuUserActivity extends AppCompatActivity {
                        break;
                    } case 1: {
                        System.out.println("Your rentals");
-                       Intent intent = new Intent(getApplicationContext(),UserRentalsActivity.class);
+                       Intent intent = new Intent( MenuUserActivity.this , UserRent5Activity.class);
                        startActivity(intent);
                        break;
                    } case 2: {

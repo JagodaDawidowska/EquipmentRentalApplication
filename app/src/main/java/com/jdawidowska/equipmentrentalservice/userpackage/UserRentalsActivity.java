@@ -11,9 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.userpackage.MenuUserActivity;
 
-public class UserRent5Activity extends AppCompatActivity {
+public class UserRentalsActivity extends AppCompatActivity {
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -58,7 +57,7 @@ public class UserRent5Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String message = String.valueOf(eTxtFeedbackPopUp.getText());
-                Toast.makeText(UserRent5Activity.this, message , Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserRentalsActivity.this, message , Toast.LENGTH_SHORT).show();
             }
         });
 

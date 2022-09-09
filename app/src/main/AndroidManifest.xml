@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EquipmentRentalService">
         <activity
-            android:name=".UserRent5Activity"
+            android:name=".userpackage.UserRent5Activity"
             android:exported="false" />
         <activity
             android:name=".adminpackage.UsersActivity"
@@ -21,11 +21,6 @@
         <activity
             android:name=".userpackage.HistoryUserRentalsActivity"
             android:exported="false" />
-        <activity
-            android:name=".userpackage.UserRentalsActivity"
-            android:exported="true">
-
-        </activity>
         <activity
             android:name=".userpackage.RentEquipmentActivity"
             android:exported="false" />

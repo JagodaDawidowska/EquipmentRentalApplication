@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice;
+package com.jdawidowska.equipmentrentalservice.userpackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,11 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.userpackage.MenuUserActivity;
 
 public class UserRent5Activity extends AppCompatActivity {
@@ -26,11 +27,21 @@ public class UserRent5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_rent5);
 
-        Button buttonaddFeedBack = findViewById(R.id.btnAddFeedback2);
-        buttonaddFeedBack.setOnClickListener(view -> {
+
+        Button btnAddFeedBack = findViewById(R.id.btnAddFeedback);
+        btnAddFeedBack.setOnClickListener(view -> {
             createFeedbackDialog();
         });
 
+        Button btnReturn = findViewById(R.id.btnReturnUserRentals);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MenuUserActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
 
@@ -48,14 +59,15 @@ public class UserRent5Activity extends AppCompatActivity {
         btnSubmitPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //define save for editText
+                String message = String.valueOf(eTxtFeedbackPopUp.getText());
+                Toast.makeText(UserRent5Activity.this, message , Toast.LENGTH_SHORT).show();
             }
         });
 
         btnReturnPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //dialog.dismiss();
+                dialog.dismiss();
             }
         });
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jdawidowska.equipmentrentalservice">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -8,7 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EquipmentRentalService">
+        android:theme="@style/Theme.EquipmentRentalService"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".userpackage.UserRentalsActivity"
             android:exported="false" />
@@ -26,17 +29,11 @@
             android:exported="false" />
         <activity
             android:name=".userpackage.MenuUserActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
         <activity
             android:name=".adminpackage.FeedbacksActivity"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".adminpackage.RentalsActivity"
@@ -45,8 +42,12 @@
         </activity>
         <activity
             android:name=".adminpackage.MenuAdminActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"

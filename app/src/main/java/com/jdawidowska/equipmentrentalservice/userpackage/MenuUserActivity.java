@@ -41,7 +41,7 @@ public class MenuUserActivity extends AppCompatActivity {
                        break;
                    } case 1: {
                        System.out.println("Your rentals");
-                       Intent intent = new Intent(getApplicationContext(),UserRentalsActivity.class);
+                       Intent intent = new Intent( MenuUserActivity.this , UserRentalsActivity.class);
                        startActivity(intent);
                        break;
                    } case 2: {
@@ -53,6 +53,5 @@ public class MenuUserActivity extends AppCompatActivity {
                }
            }
        });
-
     }
 }

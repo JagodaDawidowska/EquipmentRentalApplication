@@ -10,50 +10,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EquipmentRentalService">
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.adminpackage.UsersActivity"
+            android:name=".userpackage.UserRentalsActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.adminpackage.InventoryActivity"
+            android:name=".adminpackage.UsersActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.userpackage.HistoryUserRentalsActivity"
+            android:name=".adminpackage.InventoryActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.userpackage.UserRentalsActivity"
+            android:name=".userpackage.HistoryUserRentalsActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.userpackage.RentEquipmentActivity"
+            android:name=".userpackage.RentEquipmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.userpackage.MenuUserActivity"
+            android:name=".userpackage.MenuUserActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.adminpackage.FeedbacksActivity"
+            android:name=".adminpackage.FeedbacksActivity"
             android:exported="false">
+
         </activity>
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.adminpackage.RentalsActivity"
+            android:name=".adminpackage.RentalsActivity"
             android:exported="false">
+
         </activity>
-
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.adminpackage.MenuAdminActivity"
-            android:exported="false" >
+            android:name=".adminpackage.MenuAdminActivity"
+            android:exported="false">
 
-    </activity>
+        </activity>
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.RegisterActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.jdawidowska.equipmentrentalservice.MainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

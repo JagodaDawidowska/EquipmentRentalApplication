@@ -18,7 +18,6 @@ public class RegisterActivity extends AppCompatActivity {
         registerBTN.setOnClickListener(view -> {
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
             startActivity(intent);
-
         });
     }
 }

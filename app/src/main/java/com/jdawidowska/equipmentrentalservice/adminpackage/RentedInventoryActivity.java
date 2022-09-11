@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
 import com.jdawidowska.equipmentrentalservice.model.UserResponse;
 
 import org.json.JSONArray;
@@ -23,38 +24,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class UsersActivity extends AppCompatActivity {
+public class RentedInventoryActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    List<UserResponse> userResponseList;
-    private static String url = "http://192.168.1.4:8089/api/users";
-    Adapter adapter;
+    ArrayList<RentedInventoryResponse> rentedInventoryResponseList;
+    private static String url = "http://192.168.1.4:8089/api/rentedInventory/rentedInventoryResponse";
+    RentedInventoryResponseAdapter adapter;
 
-    //https://www.youtube.com/watch?v=e3MDW87mbR8 baza
-    //https://www.youtube.com/watch?v=__OMnFR-wZU //do obejrzenia
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        setContentView(R.layout.activity_rented_inventory);
 
-        Button button = findViewById(R.id.btnReturnUsers);
+        Button button = findViewById(R.id.btnReturnRentals);
         button.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), MenuAdminActivity.class);
             startActivity(intent);
+
         });
-
-        recyclerView = findViewById(R.id.recycleViewUsers);
-        userResponseList = new ArrayList<>();
-        extractUsers();
-
-        
+        recyclerView = findViewById(R.id.recycleViewRentedInventory);
+        rentedInventoryResponseList = new ArrayList<>();
+        extractData();
     }
 
-    private void extractUsers() {
-       RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+    private void extractData() {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>(){
+
             @Override
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
@@ -62,17 +59,18 @@ public class UsersActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject;
                         jsonObject = response.getJSONObject(i);
-                        UserResponse userResponse = new UserResponse();
-                        userResponse.setId(jsonObject.getLong("id"));
-                        userResponse.setName(jsonObject.getString("name"));
-                        userResponse.setSurname(jsonObject.getString("surname"));
-                        userResponseList.add(userResponse);
+                        RentedInventoryResponse riResponse = new RentedInventoryResponse();
+                        riResponse.setName(jsonObject.getString("name"));
+                        riResponse.setSurname(jsonObject.getString("surname"));
+                        riResponse.setEquipment(jsonObject.getString("equipment"));
+                        riResponse.setAmount(jsonObject.getInt("amount"));
+                        rentedInventoryResponseList.add(riResponse);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adapter = new Adapter(getApplicationContext(), userResponseList);
+                adapter = new  RentedInventoryResponseAdapter(getApplicationContext(), rentedInventoryResponseList);
                 recyclerView.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {
@@ -83,6 +81,4 @@ public class UsersActivity extends AppCompatActivity {
         });
         requestQueue.add(jsonArrayRequest);
     }
-
-
 }

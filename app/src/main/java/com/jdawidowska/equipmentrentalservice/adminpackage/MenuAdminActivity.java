@@ -24,7 +24,7 @@ public class MenuAdminActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listViewMenuUser);
         List<String> list =new ArrayList<>();
         list.add("Inventory");
-        list.add("Rentals");
+        list.add("Rented Inventory");
         list.add("Users");
         list.add("Feedbacks");
 
@@ -38,7 +38,7 @@ public class MenuAdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), InventoryActivity.class);
                     startActivity(intent);
                 }if(i==1) {
-                    Intent intent1 = new Intent(getApplicationContext(), RentalsActivity.class);
+                    Intent intent1 = new Intent(getApplicationContext(), RentedInventoryActivity.class);
                     startActivity(intent1);
                 }if(i==2) {
                     Intent intent2 = new Intent(getApplicationContext(), UsersActivity.class);

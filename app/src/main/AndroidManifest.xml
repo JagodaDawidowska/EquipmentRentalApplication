@@ -36,7 +36,7 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".adminpackage.RentalsActivity"
+            android:name=".adminpackage.RentedInventoryActivity"
             android:exported="false">
 
         </activity>

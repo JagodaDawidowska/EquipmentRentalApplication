@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminpackage.RentalsActivity">
+    tools:context=".adminpackage.RentedInventoryActivity">
 
     <Button
         android:id="@+id/btnReturnRentals"
@@ -23,7 +23,7 @@
         android:layout_width="155dp"
         android:layout_height="31dp"
         android:gravity="center"
-        android:text="Rentals"
+        android:text="Rented Inventory"
         android:textColor="#3F51B5"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -32,4 +32,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.072" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewRentedInventory"
+        android:layout_width="407dp"
+        android:layout_height="451dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnReturnRentals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRentalsTitle"
+        app:layout_constraintVertical_bias="0.311" />
 </androidx.constraintlayout.widget.ConstraintLayout>

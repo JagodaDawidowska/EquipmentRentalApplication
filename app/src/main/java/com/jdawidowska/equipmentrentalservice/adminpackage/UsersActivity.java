@@ -32,7 +32,8 @@ public class UsersActivity extends AppCompatActivity {
     private static String url = "http://192.168.1.4:8089/api/users";
     Adapter adapter;
 
-    //https://www.youtube.com/watch?v=e3MDW87mbR8
+    //https://www.youtube.com/watch?v=e3MDW87mbR8 baza
+    //https://www.youtube.com/watch?v=__OMnFR-wZU //do obejrzenia
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

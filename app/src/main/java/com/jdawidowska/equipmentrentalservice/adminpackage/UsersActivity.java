@@ -29,7 +29,7 @@ public class UsersActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<UserResponse> userResponseList;
-    private static String url = "http://192.168.1.4:8089/api/users";
+    private static String url = "http://192.168.0.35:8089/api/users";
     Adapter adapter;
 
     //https://www.youtube.com/watch?v=e3MDW87mbR8 baza

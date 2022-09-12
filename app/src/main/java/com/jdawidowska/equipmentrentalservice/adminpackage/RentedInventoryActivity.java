@@ -29,7 +29,7 @@ public class RentedInventoryActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<RentedInventoryResponse> rentedInventoryResponseList;
-    private static String url = "http://192.168.1.4:8089/api/rentedInventory/rentedInventoryResponse";
+    private static String url = "http://192.168.0.35:8089/api/rentedInventory/rentedInventoryResponse";
     RentedInventoryResponseAdapter adapter;
 
     @Override
@@ -55,10 +55,8 @@ public class RentedInventoryActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
-
                     try {
-                        JSONObject jsonObject;
-                        jsonObject = response.getJSONObject(i);
+                        JSONObject jsonObject = response.getJSONObject(i);
                         RentedInventoryResponse riResponse = new RentedInventoryResponse();
                         riResponse.setName(jsonObject.getString("name"));
                         riResponse.setSurname(jsonObject.getString("surname"));

@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_feedbakcs.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_feedbakcs.xml" value="0.25" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history_user_rentals.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_inventory.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
@@ -18,7 +18,9 @@
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rentals.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_users.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/equipmentlayout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/fedback_row_test.xml" value="0.5" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/popupfeedback.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_feedback_row.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_rented_inventory_row.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_users_row.xml" value="0.36141304347826086" />
       </map>

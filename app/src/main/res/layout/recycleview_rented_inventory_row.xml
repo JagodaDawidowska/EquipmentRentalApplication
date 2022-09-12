@@ -30,10 +30,10 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RItxtRecycleViewITEAM" />
+                app:layout_constraintTop_toBottomOf="@+id/RIRecycleViewITEM" />
 
             <TextView
-                android:id="@+id/RItxtRecycleViewNAME"
+                android:id="@+id/RIRecycleViewNAME"
                 android:layout_width="157dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="10dp"
@@ -54,10 +54,10 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RItxtRecycleViewNAME" />
+                app:layout_constraintTop_toBottomOf="@+id/RIRecycleViewNAME" />
 
             <TextView
-                android:id="@+id/RItxtRecycleViewITEAM"
+                android:id="@+id/RIRecycleViewITEM"
                 android:layout_width="146dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="10dp"

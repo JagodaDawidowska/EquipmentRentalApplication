@@ -29,11 +29,10 @@ public class RentedInventoryResponseAdapter extends RecyclerView.Adapter<RentedI
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.RItxtRecycleViewNAME);
+            name = itemView.findViewById(R.id.RIRecycleViewNAME);
             surname = itemView.findViewById(R.id.RItxtRecycleViewUserSURNAME1);
-            item = itemView.findViewById(R.id.RItxtRecycleViewITEAM);
+            item = itemView.findViewById(R.id.RIRecycleViewITEM);
             amount = itemView.findViewById(R.id.RItxtRecycleViewAMOUNT);
-
         }
     }
 
@@ -51,7 +50,6 @@ public class RentedInventoryResponseAdapter extends RecyclerView.Adapter<RentedI
         holder.surname.setText(rentedInventoryResponseList.get(position).getSurname());
         holder.item.setText(rentedInventoryResponseList.get(position).getEquipment());
         holder.amount.setText(rentedInventoryResponseList.get(position).getAmount().toString());
-
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,6 +32,8 @@ public class UsersActivity extends AppCompatActivity {
     List<UserResponse> userResponseList;
     private static String url = "http://192.168.0.35:8089/api/users";
     Adapter adapter;
+    String getIDUser;
+
 
     //https://www.youtube.com/watch?v=e3MDW87mbR8 baza
     //https://www.youtube.com/watch?v=__OMnFR-wZU //do obejrzenia
@@ -39,9 +42,19 @@ public class UsersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
+        EditText etUserID = findViewById(R.id.eTxtAdminUsersSearch);
         Button button = findViewById(R.id.btnReturnUsers);
         button.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), MenuAdminActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnSearch = findViewById(R.id.btnAdminUsersSearch);
+        btnSearch.setOnClickListener(view -> {
+
+            getIDUser=etUserID.getText().toString();
+            Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+            intent.putExtra("EXTRA_USER_ID", getIDUser);
             startActivity(intent);
         });
 

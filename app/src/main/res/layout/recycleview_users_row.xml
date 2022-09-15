@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
@@ -21,7 +21,7 @@
             android:layout_height="53dp">
 
             <TextView
-                android:id="@+id/txtRecycleViewUserID"
+                android:id="@+id/txtRecycleViewHistoryAdminEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -31,7 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/RIRecycleViewNAME"
+                android:id="@+id/txtRecycleViewHistoryAdminReturn"
                 android:layout_width="157dp"
                 android:layout_height="25dp"
                 android:text="TextView"
@@ -48,8 +48,8 @@
                 android:layout_marginEnd="31dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/RIRecycleViewNAME"
-                app:layout_constraintStart_toEndOf="@+id/txtRecycleViewUserID"
+                app:layout_constraintEnd_toStartOf="@+id/txtRecycleViewHistoryAdminReturn"
+                app:layout_constraintStart_toEndOf="@+id/txtRecycleViewHistoryAdminEmail"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.517" />
 

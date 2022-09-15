@@ -29,8 +29,8 @@ class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.txtRecycleViewUserID);
-            name = itemView.findViewById(R.id.RIRecycleViewNAME);
+            id = itemView.findViewById(R.id.txtRecycleViewHistoryAdminEmail);
+            name = itemView.findViewById(R.id.txtRecycleViewHistoryAdminReturn);
             surname = itemView.findViewById(R.id.txtRecycleViewSURNAME);
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jdawidowska.equipmentrentalservice">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EquipmentRentalService"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".EquipmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adminpackage.HistoryActivity"
+            android:exported="false" />
         <activity
             android:name=".userpackage.UserRentalsActivity"
             android:exported="false" />
@@ -29,17 +35,13 @@
             android:exported="false" />
         <activity
             android:name=".userpackage.MenuUserActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".adminpackage.FeedbacksActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".adminpackage.RentedInventoryActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".adminpackage.MenuAdminActivity"
             android:exported="true">

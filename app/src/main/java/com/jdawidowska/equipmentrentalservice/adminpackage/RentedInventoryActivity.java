@@ -16,8 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.RentedInventoryResponseAdapter;
 import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
-import com.jdawidowska.equipmentrentalservice.model.UserResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +29,7 @@ public class RentedInventoryActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<RentedInventoryResponse> rentedInventoryResponseList;
-    private static String url = "http://192.168.0.35:8089/api/rentedInventory/rentedInventoryResponse";
+    private static String url = "http://192.168.1.04:8089/api/rentedInventory/rentedInventoryResponse";
     RentedInventoryResponseAdapter adapter;
 
     @Override

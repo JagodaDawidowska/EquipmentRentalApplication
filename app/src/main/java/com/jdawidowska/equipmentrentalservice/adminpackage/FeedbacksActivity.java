@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.FeedbackResponseAdapter;
 import com.jdawidowska.equipmentrentalservice.model.FeedbackResponseDTO;
 
 import org.json.JSONArray;
@@ -28,7 +29,7 @@ public class FeedbacksActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<FeedbackResponseDTO> feedbackResponseDTOList;
-    String url = "http://192.168.0.35:8089/api/feedback/findFeedbackResponseDTO";
+    String url = "http://192.168.1.04:8089/api/feedback/findFeedbackResponseDTO";
     FeedbackResponseAdapter feedbackResponseAdapter;
 
     @Override

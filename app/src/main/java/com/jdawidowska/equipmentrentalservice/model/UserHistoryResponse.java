@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice;
+package com.jdawidowska.equipmentrentalservice.model;
 import java.util.Date;
 
 public class UserHistoryResponse {

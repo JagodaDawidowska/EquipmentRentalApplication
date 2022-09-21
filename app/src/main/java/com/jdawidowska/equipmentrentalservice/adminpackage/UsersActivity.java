@@ -30,7 +30,7 @@ public class UsersActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<UserResponse> userResponseList;
-    private static String url = "http://192.168.0.35:8089/api/users";
+    private static String url = "http://192.168.1.04:8089/api/users";
     Adapter adapter;
     String getIDUser;
 

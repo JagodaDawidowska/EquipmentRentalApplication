@@ -16,9 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.jdawidowska.equipmentrentalservice.HistoryAdapter;
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.UserHistoryResponse;
+import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.HistoryAdapter;
+import com.jdawidowska.equipmentrentalservice.model.UserHistoryResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +35,7 @@ public class HistoryActivity extends AppCompatActivity {
 
 
     String UserId;
-    private String url = "http://192.168.0.35:8089/api/history/user/DTO/";
+    private String url = "http://192.168.1.04:8089/api/history/user/DTO/";
 
     HistoryAdapter historyAdapter;
     ArrayList<UserHistoryResponse> userHistoryResponseList;

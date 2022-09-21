@@ -13,7 +13,7 @@
         android:theme="@style/Theme.EquipmentRentalService"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EquipmentActivity"
+            android:name=".adminpackage.EquipmentActivity"
             android:exported="false" />
         <activity
             android:name=".adminpackage.HistoryActivity"

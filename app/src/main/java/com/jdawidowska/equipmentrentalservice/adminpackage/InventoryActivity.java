@@ -15,23 +15,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.jdawidowska.equipmentrentalservice.InventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.InventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
-import com.jdawidowska.equipmentrentalservice.model.UserResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<Inventory> inventoryList;
-    private static String url = "http://192.168.0.35:8089/api/inventory";
+    private static String url = "http://192.168.1.04:8089/api/inventory";
     InventoryAdapter adapter;
 
 
@@ -56,7 +54,6 @@ public class InventoryActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
-
                     try {
                         JSONObject jsonObject;
                         jsonObject = response.getJSONObject(i);

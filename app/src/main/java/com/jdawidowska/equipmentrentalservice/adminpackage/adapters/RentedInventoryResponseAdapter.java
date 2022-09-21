@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice.adminpackage;
+package com.jdawidowska.equipmentrentalservice.adminpackage.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

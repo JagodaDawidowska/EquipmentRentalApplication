@@ -1,6 +1,7 @@
 package com.jdawidowska.equipmentrentalservice.adminpackage.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,7 +93,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
         holder.item.setText(inventoryList.get(position).getItemName());
         holder.total.setText(inventoryList.get(position).getTotalAmount().toString());
         holder.available.setText(inventoryList.get(position).getAvailableAmount().toString());
-
+        holder.btnRemove.setBackgroundColor(Color.RED);
     }
 
     @Override

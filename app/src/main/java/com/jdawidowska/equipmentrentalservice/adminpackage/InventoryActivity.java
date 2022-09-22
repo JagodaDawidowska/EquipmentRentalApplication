@@ -52,6 +52,15 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         recyclerView = findViewById(R.id.reycleViewInventory);
         inventoryList = new ArrayList<>();
         extractUsers();
+        blockRemove();
+    }
+
+    private void blockRemove() {
+        for (Inventory i: inventoryList) {
+            if(i.getTotalAmount()!=i.getTotalAmount()){
+
+            }
+        }
     }
 
     private void extractUsers() {
@@ -69,10 +78,12 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                         inventory.setAvailableAmount(jsonObject.getInt("availableAmount"));
                         inventory.setTotalAmount(jsonObject.getInt("totalAmount"));
                         inventoryList.add(inventory);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
+
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapter = new InventoryAdapter(getApplicationContext(), inventoryList);
                 recyclerView.setAdapter(adapter);
@@ -98,22 +109,24 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         System.out.println("ddddddddddd");
         Toast.makeText(getApplicationContext(), "Single Click on Image :" + position,
                 Toast.LENGTH_SHORT).show();
-//        btn = (Button) findViewById(R.id.btnRemoveInventoryRow);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                System.out.println("aaaaaaaa");
-//            }
-//        });
 
 
+    }
 
+    public boolean ifRemoveIsPossible(){
 
+        return true;
     }
 
     @Override
     public void onRemoveBtnClicked(int position) {
         Inventory inventoryClicked = inventoryList.get(position);
-        System.out.println("aaaaaaaaaa");
+        if(inventoryClicked.getTotalAmount() != inventoryClicked.getAvailableAmount()){
+            Toast.makeText(getApplicationContext(), "CAN'T REMOVE WHILE EQUIPMENT IS RENTED" + position,
+                    Toast.LENGTH_SHORT).show();
+        }if(inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()){
+            System.out.println("jest rowne");
+        }
+
     }
 }

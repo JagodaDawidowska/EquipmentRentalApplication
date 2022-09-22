@@ -35,6 +35,8 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     ArrayList<Inventory> inventoryList;
     private static String url = "http://192.168.1.04:8089/api/inventory";
     InventoryAdapter adapter;
+    public Button btn ;
+
 
 
     @Override
@@ -89,22 +91,29 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     }
 
 
-
     //the override method from interface
     @Override
     public void onItemClick(int position) {
         Inventory inventoryClicked = inventoryList.get(position);
         System.out.println("ddddddddddd");
-        Toast.makeText( getApplicationContext(), "Single Click on Image :" + position,
-                        Toast.LENGTH_SHORT).show();
-//        Button picture=(Button) findViewById(R.id.btnRemoveInventoryRow);
-//        picture.setOnClickListener(new View.OnClickListener() {
+        Toast.makeText(getApplicationContext(), "Single Click on Image :" + position,
+                Toast.LENGTH_SHORT).show();
+//        btn = (Button) findViewById(R.id.btnRemoveInventoryRow);
+//        btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
-//                System.out.println("ddddddddddd");
-//                Toast.makeText( getApplicationContext(), "Single Click on Image :" + position,
-//                        Toast.LENGTH_SHORT).show();
+//            public void onClick(View view) {
+//                System.out.println("aaaaaaaa");
 //            }
 //        });
+
+
+
+
+    }
+
+    @Override
+    public void onRemoveBtnClicked(int position) {
+        Inventory inventoryClicked = inventoryList.get(position);
+        System.out.println("aaaaaaaaaa");
     }
 }

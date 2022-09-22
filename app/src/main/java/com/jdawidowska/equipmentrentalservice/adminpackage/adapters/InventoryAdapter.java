@@ -35,6 +35,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
     // interface to make button clickable
     public interface OnItemClickListener{
         void onItemClick(int position);
+        void onRemoveBtnClicked(int position);
     }
 
     // setter to interface to make button clickable
@@ -59,6 +60,18 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
                         int position = getAbsoluteAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+            btnRemove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onItemClickListener != null){
+                        int position = getAbsoluteAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            onItemClickListener.onRemoveBtnClicked(position);
                         }
                     }
                 }

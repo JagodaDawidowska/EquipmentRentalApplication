@@ -16,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
 import com.jdawidowska.equipmentrentalservice.MainActivity;
@@ -113,9 +114,26 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
 
     }
 
-    public boolean ifRemoveIsPossible(){
+//    private void lendItem(Integer id){
+//        //wykonanie zapytania do backendu
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url = ApiEndpoints.LEND_EQUIPMENT.toString() + id;
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                response -> Toast.makeText(this, response, Toast.LENGTH_SHORT).show(),
+//                error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+//        );
 
-        return true;
+    public void remove(int position){
+        Inventory inventory = inventoryList.get(position);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        System.out.println((inventory.getId()).toString());
+        String url =  "http://192.168.1.04:8089/api/inventory/remove/"+  (inventory.getId()).toString();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                response -> Toast.makeText(this, response, Toast.LENGTH_SHORT).show(),
+                error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+        );
+        queue.add(stringRequest);
+        extractUsers();
     }
 
     @Override
@@ -126,6 +144,7 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                     Toast.LENGTH_SHORT).show();
         }if(inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()){
             System.out.println("jest rowne");
+            remove(position);
         }
 
     }

@@ -10,8 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Response;
+import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -20,13 +24,24 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
 
     LayoutInflater inflater;
     ArrayList<Inventory> inventoryList;
+    // interface to make button clickable
+    public OnItemClickListener onItemClickListener;
+
 
     public InventoryAdapter(Context context, ArrayList<Inventory> inventoryList) {
         this.inflater = LayoutInflater.from(context);
         this.inventoryList = inventoryList;
     }
+    // interface to make button clickable
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    // setter to interface to make button clickable
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener=onItemClickListener;
+    }
+    public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView item, available, total;
         Button btnRemove;
 
@@ -35,7 +50,20 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
             item = itemView.findViewById(R.id.txtnventoryRowItemName);
             available =itemView.findViewById(R.id.txtnventoryRowAvaiableAmount);
             total = itemView.findViewById(R.id.txtnventoryRowTotalAmount);
+            //finding the right button and set position
             btnRemove = itemView.findViewById(R.id.btnRemoveInventoryRow);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onItemClickListener != null){
+                        int position = getAbsoluteAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
         }
     }
 
@@ -51,6 +79,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
         holder.item.setText(inventoryList.get(position).getItemName());
         holder.total.setText(inventoryList.get(position).getTotalAmount().toString());
         holder.available.setText(inventoryList.get(position).getAvailableAmount().toString());
+
     }
 
     @Override

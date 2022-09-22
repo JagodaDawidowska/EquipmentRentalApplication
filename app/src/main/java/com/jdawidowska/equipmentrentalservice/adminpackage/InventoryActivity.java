@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
+import com.jdawidowska.equipmentrentalservice.MainActivity;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.InventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
@@ -25,7 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class InventoryActivity extends AppCompatActivity {
+public class InventoryActivity extends AppCompatActivity implements InventoryAdapter.OnItemClickListener {
 
     RecyclerView recyclerView;
     ArrayList<Inventory> inventoryList;
@@ -70,6 +74,10 @@ public class InventoryActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapter = new InventoryAdapter(getApplicationContext(), inventoryList);
                 recyclerView.setAdapter(adapter);
+                adapter.setOnItemClickListener(InventoryActivity.this);
+
+                //need to set method from inferface to adapter
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -78,5 +86,25 @@ public class InventoryActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonArrayRequest);
+    }
+
+
+
+    //the override method from interface
+    @Override
+    public void onItemClick(int position) {
+        Inventory inventoryClicked = inventoryList.get(position);
+        System.out.println("ddddddddddd");
+        Toast.makeText( getApplicationContext(), "Single Click on Image :" + position,
+                        Toast.LENGTH_SHORT).show();
+//        Button picture=(Button) findViewById(R.id.btnRemoveInventoryRow);
+//        picture.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("ddddddddddd");
+//                Toast.makeText( getApplicationContext(), "Single Click on Image :" + position,
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }

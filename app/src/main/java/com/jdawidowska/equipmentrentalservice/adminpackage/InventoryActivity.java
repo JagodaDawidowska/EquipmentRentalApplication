@@ -1,10 +1,14 @@
 package com.jdawidowska.equipmentrentalservice.adminpackage;
 
+import static android.graphics.Color.RED;
+import static android.graphics.Color.red;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,16 +57,9 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         recyclerView = findViewById(R.id.reycleViewInventory);
         inventoryList = new ArrayList<>();
         extractUsers();
-        blockRemove();
+
     }
 
-    private void blockRemove() {
-        for (Inventory i: inventoryList) {
-            if(i.getTotalAmount()!=i.getTotalAmount()){
-
-            }
-        }
-    }
 
     private void extractUsers() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -79,7 +76,6 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                         inventory.setAvailableAmount(jsonObject.getInt("availableAmount"));
                         inventory.setTotalAmount(jsonObject.getInt("totalAmount"));
                         inventoryList.add(inventory);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -90,7 +86,6 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                 recyclerView.setAdapter(adapter);
                 adapter.setOnItemClickListener(InventoryActivity.this);
 
-                //need to set method from inferface to adapter
 
             }
         }, new Response.ErrorListener() {
@@ -114,14 +109,7 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
 
     }
 
-//    private void lendItem(Integer id){
-//        //wykonanie zapytania do backendu
-//        RequestQueue queue = Volley.newRequestQueue(this);
-//        String url = ApiEndpoints.LEND_EQUIPMENT.toString() + id;
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                response -> Toast.makeText(this, response, Toast.LENGTH_SHORT).show(),
-//                error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
-//        );
+
 
     public void remove(int position){
         Inventory inventory = inventoryList.get(position);
@@ -142,6 +130,7 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         if(inventoryClicked.getTotalAmount() != inventoryClicked.getAvailableAmount()){
             Toast.makeText(getApplicationContext(), "CAN'T REMOVE WHILE EQUIPMENT IS RENTED" + position,
                     Toast.LENGTH_SHORT).show();
+
         }if(inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()){
             System.out.println("jest rowne");
             remove(position);

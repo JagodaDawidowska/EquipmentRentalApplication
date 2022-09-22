@@ -93,7 +93,6 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
         holder.item.setText(inventoryList.get(position).getItemName());
         holder.total.setText(inventoryList.get(position).getTotalAmount().toString());
         holder.available.setText(inventoryList.get(position).getAvailableAmount().toString());
-        holder.btnRemove.setBackgroundColor(Color.RED);
     }
 
     @Override

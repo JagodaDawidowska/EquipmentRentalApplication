@@ -133,9 +133,9 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                 error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
         );
         queue.add(stringRequest);
-        extractUsers();
     }
 
+    //https://www.youtube.com/watch?v=HMjI7cLsyfw
     @Override
     public void onRemoveBtnClicked(int position) {
         Inventory inventoryClicked = inventoryList.get(position);
@@ -145,6 +145,10 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         }if(inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()){
             System.out.println("jest rowne");
             remove(position);
+            //removing item from list
+            inventoryList.remove(position);
+            //removing row in recycleview
+            adapter.notifyItemRemoved(position);
         }
 
     }

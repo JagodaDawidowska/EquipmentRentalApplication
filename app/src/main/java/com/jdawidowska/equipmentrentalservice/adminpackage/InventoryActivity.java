@@ -22,7 +22,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.jdawidowska.equipmentrentalservice.InventoryResponse;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.InventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
@@ -37,16 +36,14 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
 
     RecyclerView recyclerView;
     ArrayList<Inventory> inventoryList;
-    private static String url = "http://192.168.1.04:8089/api/inventory";
+    private final String url = "http://192.168.1.04:8089/api/inventory";
     InventoryAdapter adapter;
     public Button btn;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private EditText addEquipmentPopUp, addAmountPopUp;
-    private Button btnSaveEquipmentPopUp, ReturnEquipmentPopUp;
-    private String addUrl = "http://192.168.1.04:8089/api/inventory/add";
-    String equipmentName, equipmentAmount;
-    InventoryResponse inventoryResponse;
+    private Button btnSaveEquipmentPopUp, returnEquipmentPopUp;
+    private final String addUrl = "http://192.168.1.04:8089/api/inventory/add";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +104,7 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     //the override method from interface
     @Override
     public void onItemClick(int position) {
-        Inventory inventoryClicked = inventoryList.get(position);
-        System.out.println("ddddddddddd");
-        Toast.makeText(getApplicationContext(), "Single Click on Image :" + position,
-                Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(getApplicationContext(), "Single Click on Image :" + position, Toast.LENGTH_SHORT).show();
     }
 
     public void remove(int position) {
@@ -130,13 +123,10 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     @Override
     public void onRemoveBtnClicked(int position) {
         Inventory inventoryClicked = inventoryList.get(position);
-        if (inventoryClicked.getTotalAmount() != inventoryClicked.getAvailableAmount()) {
-            Toast.makeText(getApplicationContext(), "CAN'T REMOVE WHILE EQUIPMENT IS RENTED" + position,
-                    Toast.LENGTH_SHORT).show();
-
+        if (!inventoryClicked.getTotalAmount().equals(inventoryClicked.getAvailableAmount())) {
+            Toast.makeText(getApplicationContext(), "CAN'T REMOVE WHILE EQUIPMENT IS RENTED" + position, Toast.LENGTH_SHORT).show();
         }
-        if (inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()) {
-            System.out.println("jest rowne");
+        if (inventoryClicked.getTotalAmount().equals(inventoryClicked.getAvailableAmount())) {
             remove(position);
             //removing item from list
             inventoryList.remove(position);
@@ -149,11 +139,11 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         dialogBuilder = new AlertDialog.Builder(this);
         final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.popup_addequipment, null);
         //editTexts
-        addEquipmentPopUp = (EditText) addEquipmentPopUpView.findViewById(R.id.editTextEqupmentPopUp);
-        addAmountPopUp = (EditText) addEquipmentPopUpView.findViewById(R.id.editTextAmountPopUp);
+        addEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.editTextEqupmentPopUp);
+        addAmountPopUp = addEquipmentPopUpView.findViewById(R.id.editTextAmountPopUp);
         //buttons
-        btnSaveEquipmentPopUp = (Button) addEquipmentPopUpView.findViewById(R.id.btnPopup_addequipment_add);
-        ReturnEquipmentPopUp = (Button) addEquipmentPopUpView.findViewById(R.id.btnReturnEquipmentkPopUp);
+        btnSaveEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.btnPopup_addequipment_add);
+        returnEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.btnReturnEquipmentkPopUp);
 
         dialogBuilder.setView(addEquipmentPopUpView);
         dialog = dialogBuilder.create();
@@ -162,28 +152,39 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         btnSaveEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (addEquipmentPopUp.getText().toString().isEmpty() || addAmountPopUp.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please enter both the values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please enter both values", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                if (!isInteger(addAmountPopUp.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "Please enter a number", Toast.LENGTH_SHORT).show();
                 } else {
                     volleyAddRequest();
                 }
             }
         });
 
-        ReturnEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
+        returnEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
                 inventoryList.clear();
-               //adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 extractUsers();
             }
         });
     }
 
-    public void volleyAddRequest(){
+    boolean isInteger(String string) {
+        try {
+            Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public void volleyAddRequest() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         // user object that we need to send
@@ -200,7 +201,6 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
             body.put("availableAmount", equipmentAmount);
 
             // Put user JSONObject inside of another JSONObject which will be the body of the request
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -210,7 +210,6 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                 body,
                 response -> {
                     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
-
                 }, error -> {
             Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
         }

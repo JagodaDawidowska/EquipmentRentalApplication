@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Response;
 import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
+import com.jdawidowska.equipmentrentalservice.InventoryResponse;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 
@@ -99,6 +100,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
     public int getItemCount() {
         return inventoryList.size();
     }
+
 
 
 }

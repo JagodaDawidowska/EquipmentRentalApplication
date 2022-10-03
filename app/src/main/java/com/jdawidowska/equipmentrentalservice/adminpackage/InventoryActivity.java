@@ -1,29 +1,28 @@
 package com.jdawidowska.equipmentrentalservice.adminpackage;
 
-import static android.graphics.Color.RED;
-import static android.graphics.Color.red;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
-import com.jdawidowska.equipmentrentalservice.MainActivity;
+import com.jdawidowska.equipmentrentalservice.InventoryResponse;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.InventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
@@ -40,9 +39,14 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     ArrayList<Inventory> inventoryList;
     private static String url = "http://192.168.1.04:8089/api/inventory";
     InventoryAdapter adapter;
-    public Button btn ;
-
-
+    public Button btn;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private EditText addEquipmentPopUp, addAmountPopUp;
+    private Button btnSaveEquipmentPopUp, ReturnEquipmentPopUp;
+    private String addUrl = "http://192.168.1.04:8089/api/inventory/add";
+    String equipmentName, equipmentAmount;
+    InventoryResponse inventoryResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +62,14 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         inventoryList = new ArrayList<>();
         extractUsers();
 
+        Button btnAddEquipment = findViewById(R.id.btnInventoryAddItem);
+        btnAddEquipment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAddEquipmentDialog();
+            }
+        });
     }
-
 
     private void extractUsers() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -80,15 +90,12 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
                         e.printStackTrace();
                     }
                 }
-
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 adapter = new InventoryAdapter(getApplicationContext(), inventoryList);
                 recyclerView.setAdapter(adapter);
                 adapter.setOnItemClickListener(InventoryActivity.this);
-
-
             }
-        }, new Response.ErrorListener() {
+        }, new ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("tag", "onErrorResponse: " + error.getMessage());
@@ -96,7 +103,6 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         });
         requestQueue.add(jsonArrayRequest);
     }
-
 
     //the override method from interface
     @Override
@@ -106,16 +112,13 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
         Toast.makeText(getApplicationContext(), "Single Click on Image :" + position,
                 Toast.LENGTH_SHORT).show();
 
-
     }
 
-
-
-    public void remove(int position){
+    public void remove(int position) {
         Inventory inventory = inventoryList.get(position);
         RequestQueue queue = Volley.newRequestQueue(this);
         System.out.println((inventory.getId()).toString());
-        String url =  "http://192.168.1.04:8089/api/inventory/remove/"+  (inventory.getId()).toString();
+        String url = "http://192.168.1.04:8089/api/inventory/remove/" + (inventory.getId()).toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> Toast.makeText(this, response, Toast.LENGTH_SHORT).show(),
                 error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
@@ -127,11 +130,12 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
     @Override
     public void onRemoveBtnClicked(int position) {
         Inventory inventoryClicked = inventoryList.get(position);
-        if(inventoryClicked.getTotalAmount() != inventoryClicked.getAvailableAmount()){
+        if (inventoryClicked.getTotalAmount() != inventoryClicked.getAvailableAmount()) {
             Toast.makeText(getApplicationContext(), "CAN'T REMOVE WHILE EQUIPMENT IS RENTED" + position,
                     Toast.LENGTH_SHORT).show();
 
-        }if(inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()){
+        }
+        if (inventoryClicked.getTotalAmount() == inventoryClicked.getAvailableAmount()) {
             System.out.println("jest rowne");
             remove(position);
             //removing item from list
@@ -139,6 +143,78 @@ public class InventoryActivity extends AppCompatActivity implements InventoryAda
             //removing row in recycleview
             adapter.notifyItemRemoved(position);
         }
+    }
 
+    public void createAddEquipmentDialog() {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.popup_addequipment, null);
+        //editTexts
+        addEquipmentPopUp = (EditText) addEquipmentPopUpView.findViewById(R.id.editTextEqupmentPopUp);
+        addAmountPopUp = (EditText) addEquipmentPopUpView.findViewById(R.id.editTextAmountPopUp);
+        //buttons
+        btnSaveEquipmentPopUp = (Button) addEquipmentPopUpView.findViewById(R.id.btnPopup_addequipment_add);
+        ReturnEquipmentPopUp = (Button) addEquipmentPopUpView.findViewById(R.id.btnReturnEquipmentkPopUp);
+
+        dialogBuilder.setView(addEquipmentPopUpView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        btnSaveEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (addEquipmentPopUp.getText().toString().isEmpty() || addAmountPopUp.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter both the values", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    volleyAddRequest();
+                }
+            }
+        });
+
+        ReturnEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                inventoryList.clear();
+               //adapter.notifyDataSetChanged();
+                extractUsers();
+            }
+        });
+    }
+
+    public void volleyAddRequest(){
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+        // user object that we need to send
+        // body of the request
+        JSONObject body = new JSONObject();
+
+        String equipmentName = addEquipmentPopUp.getText().toString();
+        String equipmentAmount = addAmountPopUp.getText().toString();
+
+        try {
+            // Put user attributes in a JSONObject
+            body.put("itemName", equipmentName);
+            body.put("totalAmount", equipmentAmount);
+            body.put("availableAmount", equipmentAmount);
+
+            // Put user JSONObject inside of another JSONObject which will be the body of the request
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                addUrl,
+                body,
+                response -> {
+                    Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+
+                }, error -> {
+            Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+        }
+        );
+        queue.add(jsonObjectRequest);
     }
 }

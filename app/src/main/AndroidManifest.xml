@@ -36,6 +36,10 @@
         <activity
             android:name=".userpackage.MenuUserActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             </activity>
         <activity
             android:name=".adminpackage.FeedbacksActivity"
@@ -46,10 +50,7 @@
         <activity
             android:name=".adminpackage.MenuAdminActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".RegisterActivity"

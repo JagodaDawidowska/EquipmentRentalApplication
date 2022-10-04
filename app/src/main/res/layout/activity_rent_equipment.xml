@@ -13,10 +13,23 @@
         android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewRentEquipment"
+        app:layout_constraintVertical_bias="0.777" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewRentEquipment"
+        android:layout_width="match_parent"
+        android:layout_height="488dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRentEquipmentTitle"
+        app:layout_constraintVertical_bias="0.246"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
         android:id="@+id/txtRentEquipmentTitle"

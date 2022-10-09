@@ -27,7 +27,6 @@ public class RentEquipmentAdapter extends RecyclerView.Adapter<RentEquipmentAdap
     }
 
     public interface OnItemClickListener{
-        void onItemClick(int position);
         void onRentBtnClicked(int position);
     }
 

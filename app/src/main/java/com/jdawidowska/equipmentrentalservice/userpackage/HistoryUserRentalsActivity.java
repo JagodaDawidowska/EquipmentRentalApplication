@@ -17,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.adminpackage.HistoryActivity;
 import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.HistoryAdapter;
 import com.jdawidowska.equipmentrentalservice.model.UserHistoryResponse;
 
@@ -54,7 +53,7 @@ public class HistoryUserRentalsActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        recyclerView = findViewById(R.id.recycleViewUserRentals);
+        recyclerView = findViewById(R.id.recycleViewUserHistoryRentals);
         userHistoryResponseList = new ArrayList<>();
         extractUsers();
     }

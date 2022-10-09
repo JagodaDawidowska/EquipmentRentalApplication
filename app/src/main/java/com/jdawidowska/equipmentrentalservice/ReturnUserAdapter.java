@@ -13,16 +13,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class ReturnUserAdapter extends RecyclerView.Adapter<ReturnUserAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<RentedInventoryResponse> rentedInventoryResponseList;
+    ArrayList<ReturnUserResponse> returnUserResponseList;
+    private OnItemClickListener onItemClickListener;;
 
-    public ReturnUserAdapter(Context context, ArrayList<RentedInventoryResponse> rentedInventoryResponseList) {
+
+    public interface OnItemClickListener{
+
+        void onReturnButton(int position);
+    }
+
+    // setter to interface to make button clickable
+    public void setOnItemClickListener(ReturnUserAdapter.OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public ReturnUserAdapter(Context context, ArrayList<ReturnUserResponse> returnUserResponseList) {
         this.inflater = LayoutInflater.from(context);
-        this.rentedInventoryResponseList = rentedInventoryResponseList;
+        this.returnUserResponseList = returnUserResponseList;
     }
 
     @NonNull
@@ -35,8 +46,8 @@ public class ReturnUserAdapter extends RecyclerView.Adapter<ReturnUserAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.item.setText(rentedInventoryResponseList.get(position).getEquipment());
-        holder.amount.setText(rentedInventoryResponseList.get(position).getAmount().toString());
+        holder.item.setText(returnUserResponseList.get(position).getName());
+        holder.amount.setText(returnUserResponseList.get(position).getAmount().toString());
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -47,11 +58,22 @@ public class ReturnUserAdapter extends RecyclerView.Adapter<ReturnUserAdapter.My
             item = itemView.findViewById(R.id.txtItemRetunRow);
             amount = itemView.findViewById(R.id.txtAmountReturnRow);
             button = itemView.findViewById(R.id.btnReturnUserRow);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onItemClickListener != null){
+                        int position = getAbsoluteAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                           onItemClickListener.onReturnButton(position);
+                        }
+                    }
+                }
+            });
         }
     }
     @Override
     public int getItemCount() {
-        return rentedInventoryResponseList.size();
+        return returnUserResponseList.size();
     }
 
 

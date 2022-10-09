@@ -18,12 +18,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.RentEquipmentActivity;
-import com.jdawidowska.equipmentrentalservice.RentEquipmentAdapter;
 import com.jdawidowska.equipmentrentalservice.ReturnUserAdapter;
-import com.jdawidowska.equipmentrentalservice.model.Inventory;
+import com.jdawidowska.equipmentrentalservice.ReturnUserResponse;
 import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
 
 import org.json.JSONArray;
@@ -32,7 +31,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class UserRentalsActivity extends AppCompatActivity {
+public class UserRentalsActivity extends AppCompatActivity implements ReturnUserAdapter.OnItemClickListener{
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -42,9 +41,10 @@ public class UserRentalsActivity extends AppCompatActivity {
     ReturnUserAdapter adapter;
     RecyclerView recyclerView;
 
-    private final String extractUrl="http://192.168.1.04:8089/api/rentedInventory/rentedInventoryResponse";
-    private final String returnUrl="";
-    ArrayList <RentedInventoryResponse> rentedInventoryResponseList;
+    private final String extractUrl="http://192.168.1.04:8089/api/rentedInventory/user/1";
+
+    private final String returnUrl="http://192.168.1.04:8089/api/renting/return";
+    ArrayList <ReturnUserResponse> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +60,15 @@ public class UserRentalsActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerViewUserRentals);
-        rentedInventoryResponseList = new ArrayList<>();
+        list = new ArrayList<>();
         extractEquipment();
     }
+
+
+//    @GetMapping("/user/{idUser}")
+//    public List<UserRentedResponse> findEquipmentRentedByUser(@PathVariable("idUser") Long idUser){
+//        return rentedInventoryService.findEquipmentRentedByUser(idUser);
+//    }
 
     private void extractEquipment() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -73,20 +79,19 @@ public class UserRentalsActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject;
                         jsonObject = response.getJSONObject(i);
-                        RentedInventoryResponse rentedInventoryResponse =new RentedInventoryResponse();
-                        rentedInventoryResponse.setName(jsonObject.getString("name"));
-                        rentedInventoryResponse.setSurname(jsonObject.getString("surname"));
-                        rentedInventoryResponse.setEquipment(jsonObject.getString("equipment"));
-                        rentedInventoryResponse.setAmount(jsonObject.getInt("amount"));
-                        rentedInventoryResponseList.add(rentedInventoryResponse);
+                        ReturnUserResponse returnUserResponse =new ReturnUserResponse();
+                        returnUserResponse.setId(jsonObject.getLong("id"));
+                        returnUserResponse.setName(jsonObject.getString("name"));
+                        returnUserResponse.setAmount(jsonObject.getInt("amount"));
+                        list.add(returnUserResponse);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                adapter = new ReturnUserAdapter(getApplicationContext(), rentedInventoryResponseList);
+                adapter = new ReturnUserAdapter(getApplicationContext(), list);
                 recyclerView.setAdapter(adapter);
-              // adapter.setOnItemClickListener(RentEquipmentActivity.this);
+                adapter.setOnItemClickListener(UserRentalsActivity.this);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -123,5 +128,42 @@ public class UserRentalsActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+    }
+
+
+    @Override
+    public void onReturnButton(int position) {
+       //? Toast.makeText(getApplicationContext(),"SD", Toast.LENGTH_SHORT);
+        System.out.println("sdsdsdsdsdsdsdsdsd");
+        createFeedbackDialog();
+    }
+
+    private void rentEquipment(int position) {
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        ReturnUserResponse returnUserResponseClicked = list.get(position);
+
+            JSONObject body = new JSONObject();
+
+            try {
+                // nwm skad idrentedinventory brac?
+                body.put("idRentedInventory",89);
+                body.put("feedback","huhuuhuhjuju");
+                // Put user JSONObject inside of another JSONObject which will be the body of the request
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                    Request.Method.POST,
+                    returnUrl,
+                    body,
+                    response -> {   //oddaje response w json:(
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                    }, error -> {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+            );
+            queue.add(jsonObjectRequest);
+
+       // }
     }
 }

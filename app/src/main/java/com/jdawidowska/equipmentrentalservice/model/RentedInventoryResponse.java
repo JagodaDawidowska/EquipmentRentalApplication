@@ -2,6 +2,7 @@ package com.jdawidowska.equipmentrentalservice.model;
 
 public class RentedInventoryResponse {
 
+
     private String name;
     private String surname;
     private String equipment;

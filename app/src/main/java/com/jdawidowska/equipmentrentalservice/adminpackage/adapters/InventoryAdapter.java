@@ -1,7 +1,6 @@
 package com.jdawidowska.equipmentrentalservice.adminpackage.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Response;
-import com.jdawidowska.equipmentrentalservice.InventoryOnClickInterface;
-import com.jdawidowska.equipmentrentalservice.InventoryResponse;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice;
+package com.jdawidowska.equipmentrentalservice.userpackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,8 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.model.RentingRequest;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
-import com.jdawidowska.equipmentrentalservice.userpackage.MenuUserActivity;
+import com.jdawidowska.equipmentrentalservice.userpackage.adapters.RentEquipmentAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;

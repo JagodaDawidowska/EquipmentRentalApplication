@@ -21,9 +21,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.ReturnUserAdapter;
-import com.jdawidowska.equipmentrentalservice.ReturnUserResponse;
-import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
+import com.jdawidowska.equipmentrentalservice.userpackage.adapters.ReturnUserAdapter;
+import com.jdawidowska.equipmentrentalservice.model.ReturnUserResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -145,7 +144,6 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             JSONObject body = new JSONObject();
 
             try {
-                // nwm skad idrentedinventory brac?
                 body.put("idRentedInventory",rentedInventoryIdValue);
                 body.put("feedback",message);
                 // Put user JSONObject inside of another JSONObject which will be the body of the request

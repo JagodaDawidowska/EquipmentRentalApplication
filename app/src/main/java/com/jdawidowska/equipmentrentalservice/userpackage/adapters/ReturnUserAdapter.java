@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice;
+package com.jdawidowska.equipmentrentalservice.userpackage.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jdawidowska.equipmentrentalservice.model.RentedInventoryResponse;
+import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.model.ReturnUserResponse;
 
 import java.util.ArrayList;
 

@@ -31,7 +31,7 @@
             android:name=".userpackage.HistoryUserRentalsActivity"
             android:exported="false" />
         <activity
-            android:name=".RentEquipmentActivity"
+            android:name=".userpackage.RentEquipmentActivity"
             android:exported="false" />
         <activity
             android:name=".userpackage.MenuUserActivity"

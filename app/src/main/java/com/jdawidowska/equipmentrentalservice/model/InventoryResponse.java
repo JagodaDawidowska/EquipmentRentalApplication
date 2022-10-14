@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice;
+package com.jdawidowska.equipmentrentalservice.model;
 
 public class InventoryResponse {
     private String itemName;

@@ -34,9 +34,10 @@ public class HistoryUserRentalsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-
+    String maxIp="192.168.0.35";
+    String JaIp="192.168.1.04";
     String UserId;
-    private String url = "http://192.168.1.04:8089/api/history/user/DTO/1";
+    private String url = "http://"+maxIp+":8089/api/history/user/DTO/1";
 
     HistoryAdapter historyAdapter;
     ArrayList<UserHistoryResponse> userHistoryResponseList;

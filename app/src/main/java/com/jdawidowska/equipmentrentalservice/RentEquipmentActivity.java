@@ -31,11 +31,14 @@ public class RentEquipmentActivity extends AppCompatActivity implements RentEqui
 
     RecyclerView recyclerView;
     ArrayList<Inventory> inventoryList;
-    private final String url = "http://192.168.1.04:8089/api/inventory";
+    String maxIp="192.168.0.35";
+    String JaIp="192.168.1.04";
+
+    private final String url = "http://"+maxIp+":8089/api/inventory";
     RentEquipmentAdapter adapter;
     Long idUser1 = Long.valueOf(1);
     RentingRequest rentingRequest;
-    private String rentUrl="http://192.168.1.04:8089/api/renting/rent";
+    private String rentUrl="http://"+maxIp+":8089/api/renting/rent";
 
 
     @Override

@@ -40,10 +40,12 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
     private Button btnReturnPopUp ;
     ReturnUserAdapter adapter;
     RecyclerView recyclerView;
+    String maxIp="192.168.0.35";
+    String JaIp="192.168.1.04";
 
-    private final String extractUrl="http://192.168.1.04:8089/api/rentedInventory/user/1";
+    private final String extractUrl="http://"+maxIp+":8089/api/rentedInventory/user/1";
 
-    private final String returnUrl="http://192.168.1.04:8089/api/renting/return";
+    private final String returnUrl="http://"+maxIp+":8089/api/renting/return";
     ArrayList <ReturnUserResponse> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
         setContentView(R.layout.activity_user_rent5);
 
         Button btnAddFeedBack = findViewById(R.id.btnAddFeedback);
-        btnAddFeedBack.setOnClickListener(view -> createFeedbackDialog());
+        //btnAddFeedBack.setOnClickListener(view -> createFeedbackDialog());
 
         Button btnReturn = findViewById(R.id.btnReturnUserRentals);
         btnReturn.setOnClickListener(view -> {
@@ -64,11 +66,6 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
         extractEquipment();
     }
 
-
-//    @GetMapping("/user/{idUser}")
-//    public List<UserRentedResponse> findEquipmentRentedByUser(@PathVariable("idUser") Long idUser){
-//        return rentedInventoryService.findEquipmentRentedByUser(idUser);
-//    }
 
     private void extractEquipment() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -103,7 +100,7 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
 
     }
 
-    public void createFeedbackDialog(){
+    public void createFeedbackDialog(int position){
         dialogBuilder = new AlertDialog.Builder(this);
         final View feedbackPopUPView = getLayoutInflater().inflate(R.layout.popupfeedback, null);
         eTxtFeedbackPopUp = (EditText) feedbackPopUPView.findViewById(R.id.editTextAmountPopUp);
@@ -118,7 +115,8 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             @Override
             public void onClick(View view) {
                 String message = String.valueOf(eTxtFeedbackPopUp.getText());
-                Toast.makeText(UserRentalsActivity.this, message , Toast.LENGTH_SHORT).show();
+
+                returnEquipment(position, message);
             }
         });
 
@@ -130,24 +128,26 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
         });
     }
 
-
     @Override
     public void onReturnButton(int position) {
        //? Toast.makeText(getApplicationContext(),"SD", Toast.LENGTH_SHORT);
         System.out.println("sdsdsdsdsdsdsdsdsd");
-        createFeedbackDialog();
+        createFeedbackDialog(position);
     }
 
-    private void rentEquipment(int position) {
+    private void returnEquipment(int position,String message) {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+        //do wyciagniecia idrentedinventory
         ReturnUserResponse returnUserResponseClicked = list.get(position);
+        Long rentedInventoryIdValue = returnUserResponseClicked.getId();
 
             JSONObject body = new JSONObject();
 
             try {
                 // nwm skad idrentedinventory brac?
-                body.put("idRentedInventory",89);
-                body.put("feedback","huhuuhuhjuju");
+                body.put("idRentedInventory",rentedInventoryIdValue);
+                body.put("feedback",message);
                 // Put user JSONObject inside of another JSONObject which will be the body of the request
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -163,7 +163,6 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             }
             );
             queue.add(jsonObjectRequest);
-
-       // }
+       // } 192.168.0.35
     }
 }

@@ -8,50 +8,39 @@
 
     <TextView
         android:id="@+id/txtUserRentalstTitle"
-        android:layout_width="155dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="186dp"
+        android:layout_height="49dp"
         android:gravity="center"
         android:text="Your Rentals"
         android:textColor="#3F51B5"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewUserRentals"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnReturnUserRentals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="99dp"
+        android:layout_height="48dp"
         android:text="Return"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewUserRentals" />
-
-    <Button
-        android:id="@+id/btnAddFeedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="16dp"
-        android:text="Add Feedback"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReturnUserRentals"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewUserRentals"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUserRentals"
-        android:layout_width="407dp"
-        android:layout_height="544dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="302dp"
+        android:layout_height="395dp"
+        android:layout_marginTop="80dp"
+        android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserRentalstTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

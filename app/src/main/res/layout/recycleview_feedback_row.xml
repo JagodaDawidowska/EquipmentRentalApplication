@@ -7,8 +7,8 @@
     android:layout_margin="5dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="403dp"
-        android:layout_height="137dp"
+        android:layout_width="332dp"
+        android:layout_height="131dp"
         app:cardBackgroundColor="#A8A6B3F8"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,29 +17,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="376dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/FRecycleViewEMAIL"
-                android:layout_width="318dp"
-                android:layout_height="30dp"
+                android:layout_width="292dp"
+                android:layout_height="29dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/FRecycleViewCONTENT"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.517"
+                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/FRecycleViewCONTENT"
-                android:layout_width="327dp"
-                android:layout_height="92dp"
-                android:layout_marginBottom="4dp"
+                android:layout_width="295dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
                 android:background="#FFFFFF"
                 android:backgroundTint="#B3BCF1"
                 android:gravity="center|center_horizontal"
@@ -47,7 +47,6 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.609"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -36,7 +36,7 @@ public class RentEquipmentActivity extends AppCompatActivity implements RentEqui
     String maxIp="192.168.0.35";
     String JaIp="192.168.1.04";
 
-    private final String url = "http://"+maxIp+":8089/api/inventory";
+    private final String url = "http://"+JaIp+":8089/api/inventory";
     RentEquipmentAdapter adapter;
     Long idUser1 = Long.valueOf(1);
     RentingRequest rentingRequest;

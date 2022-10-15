@@ -8,40 +8,45 @@
 
     <TextView
         android:id="@+id/txtMenuUserTitle1"
-        android:layout_width="155dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="219dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="Menu"
         android:textColor="#3F51B5"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnReturnMenuUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="477dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:text="Return"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.529" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMenuUserTitle1" />
 
     <ListView
         android:id="@+id/listViewMenuUser"
-        android:layout_width="401dp"
-        android:layout_height="504dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="286dp"
+        android:layout_height="387dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btnReturnMenuUser"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMenuUserTitle1"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

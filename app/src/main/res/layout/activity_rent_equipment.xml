@@ -8,9 +8,10 @@
 
     <Button
         android:id="@+id/btnReturnRentEquipment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
         android:text="Return"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.889"
@@ -20,8 +21,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewRentEquipment"
-        android:layout_width="match_parent"
-        android:layout_height="488dp"
+        android:layout_width="279dp"
+        android:layout_height="325dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,16 +34,17 @@
 
     <TextView
         android:id="@+id/txtRentEquipmentTitle"
-        android:layout_width="155dp"
-        android:layout_height="31dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:text="Rent Equipment"
         android:textColor="#3F51B5"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.032" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.userpackage.adapters.ReturnUserAdapter;
 import com.jdawidowska.equipmentrentalservice.model.ReturnUserResponse;
@@ -42,17 +43,14 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
     String maxIp="192.168.0.35";
     String JaIp="192.168.1.04";
 
-    private final String extractUrl="http://"+maxIp+":8089/api/rentedInventory/user/1";
+    private final String extractUrl="http://"+JaIp+":8089/api/rentedInventory/user/1";
 
-    private final String returnUrl="http://"+maxIp+":8089/api/renting/return";
+    private final String returnUrl="http://"+JaIp+":8089/api/renting/return";
     ArrayList <ReturnUserResponse> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_rent5);
-
-        Button btnAddFeedBack = findViewById(R.id.btnAddFeedback);
-        //btnAddFeedBack.setOnClickListener(view -> createFeedbackDialog());
 
         Button btnReturn = findViewById(R.id.btnReturnUserRentals);
         btnReturn.setOnClickListener(view -> {
@@ -130,7 +128,6 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
     @Override
     public void onReturnButton(int position) {
        //? Toast.makeText(getApplicationContext(),"SD", Toast.LENGTH_SHORT);
-        System.out.println("sdsdsdsdsdsdsdsdsd");
         createFeedbackDialog(position);
     }
 
@@ -161,6 +158,5 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             }
             );
             queue.add(jsonObjectRequest);
-       // } 192.168.0.35
     }
 }

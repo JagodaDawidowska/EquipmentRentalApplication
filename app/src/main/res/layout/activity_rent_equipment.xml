@@ -10,18 +10,20 @@
         android:id="@+id/btnReturnRentEquipment"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Return"
+        android:layout_marginBottom="20dp"
         android:textSize="20sp"
+        android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewRentEquipment"
         android:layout_width="match_parent"
-        android:layout_height="694dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="760dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btnReturnRentEquipment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRentEquipmentTitle"></androidx.recyclerview.widget.RecyclerView>
@@ -30,12 +32,12 @@
 
         android:id="@+id/txtRentEquipmentTitle"
         android:layout_width="220dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:text="Rent Equipment"
         android:textColor="#3F51B5"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

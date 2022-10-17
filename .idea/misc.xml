@@ -29,12 +29,12 @@
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycle_view_history_of_rentals_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycle_view_rent_equpipment_row.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycle_view_user_return.xml" value="0.29257246376811596" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycle_view_user_return_row.xml" value="0.29257246376811596" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycle_view_user_return_row.xml" value="0.5" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_feedback_row.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_inventory_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_rented_inventory_row.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_users_row.xml" value="0.1" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/user_history_response_by_id_row.xml" value="0.33" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/user_history_response_by_id_row.xml" value="0.25" />
       </map>
     </option>
   </component>

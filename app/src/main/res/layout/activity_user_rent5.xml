@@ -10,7 +10,7 @@
         android:id="@+id/txtUserRentalstTitle"
         android:layout_width="186dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Your Rentals"
         android:textColor="#3F51B5"
@@ -22,9 +22,9 @@
 
     <Button
         android:id="@+id/btnReturnUserRentals"
-        android:layout_width="151dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="16dp"
         android:text="Return"
         android:textSize="20sp"
@@ -36,7 +36,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUserRentals"
         android:layout_width="match_parent"
-        android:layout_height="706dp"
+        android:layout_height="760dp"
         android:layout_marginTop="20dp"
         android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

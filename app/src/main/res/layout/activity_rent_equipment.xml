@@ -9,42 +9,36 @@
     <Button
         android:id="@+id/btnReturnRentEquipment"
         android:layout_width="130dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Return"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleViewRentEquipment"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewRentEquipment"
-        android:layout_width="279dp"
-        android:layout_height="325dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="694dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnReturnRentEquipment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRentEquipmentTitle"
-        app:layout_constraintVertical_bias="0.246"></androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/txtRentEquipmentTitle"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
+
         android:id="@+id/txtRentEquipmentTitle"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:gravity="center"
+        android:layout_marginTop="20dp"
         android:text="Rent Equipment"
         android:textColor="#3F51B5"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032" />
+ />
 </androidx.constraintlayout.widget.ConstraintLayout>

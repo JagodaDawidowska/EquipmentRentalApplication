@@ -4,48 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".userpackage.HistoryUserRentalsActivity">
-
-    <Button
-        android:id="@+id/btnReturnUserHistoryRentals"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="Return"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.832"
-        app:layout_constraintStart_toStartOf="@id/recycleViewUserHistoryRentals"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewUserHistoryRentals"
         android:layout_width="match_parent"
-        android:layout_height="900dp"
-
-        android:layout_marginTop="68dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnReturnUserHistoryRentals"
+        android:layout_height="650dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnReturnUserHistoryRentals"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025">
+        app:layout_constraintTop_toBottomOf="@+id/txtUserHistoryRentalsTitle"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnReturnUserHistoryRentals"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:text="Return"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
     <TextView
         android:id="@+id/txtUserHistoryRentalsTitle"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="History of Your rentals"
         android:textColor="#3F51B5"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

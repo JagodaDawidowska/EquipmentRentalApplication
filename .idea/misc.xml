@@ -6,7 +6,7 @@
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_equipment.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_feedbakcs.xml" value="0.25" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history.xml" value="0.33" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history_user_rentals.xml" value="0.2" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history_user_rentals.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_inventory.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_inventory_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
@@ -18,7 +18,7 @@
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rent_equipment.xml" value="0.25" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rentals.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rented_inventory.xml" value="0.25" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rent5.xml" value="0.5" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rent5.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rentals.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_users.xml" value="0.25" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/equipmentlayout.xml" value="0.36666666666666664" />
@@ -33,7 +33,7 @@
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_feedback_row.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_inventory_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_rented_inventory_row.xml" value="0.33" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_users_row.xml" value="0.33" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/recycleview_users_row.xml" value="0.1" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/user_history_response_by_id_row.xml" value="0.33" />
       </map>
     </option>

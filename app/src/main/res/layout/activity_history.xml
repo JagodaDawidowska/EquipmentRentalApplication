@@ -8,46 +8,50 @@
 
     <Button
         android:id="@+id/btnReturnUserHistoryRentals2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Return"
-        android:layout_marginBottom="16dp"
+        tools:layout_editor_absoluteX="298dp"
+        tools:layout_editor_absoluteY="827dp"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recycleViewUserHistoryID"
+
+        />
 
     <TextView
         android:id="@+id/txtHistoryTitle"
-        android:layout_width="220dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
         android:text="History of rentals for IdUser"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="87dp"
         android:textColor="#3F51B5"
-        android:textSize="16dp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recycleViewUserHistoryID"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewUserHistoryID"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="240dp"
         android:layout_width="match_parent"
-        android:layout_height="488dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnReturnUserHistoryRentals2"
+        android:layout_height="730dp"
+        android:layout_marginTop="20dp"
+        android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtHistoryTitle"
-        app:layout_constraintVertical_bias="0.836">
+        app:layout_constraintTop_toBottomOf="@id/txtHistoryTitle"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -6,63 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".adminpackage.InventoryActivity">
 
-    <Button
-        android:id="@+id/btnReturnInventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="Return"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <Button
-        android:id="@+id/btnInventoryAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="Add equipment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReturnInventory"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
 
     <TextView
         android:id="@+id/txtInventoryTitle"
         android:layout_width="155dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Inventory"
         android:textColor="#3F51B5"
-        android:textSize="16sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnReturnInventory"
+        app:layout_constraintTop_toBottomOf="@+id/reycleViewInventory"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:text="Return"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintStart_toEndOf="@id/btnInventoryAddItem" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="408dp"
-        android:layout_height="464dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnInventoryAddItem"
+    <Button
+        android:id="@+id/btnInventoryAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:text="Add equipment"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reycleViewInventory"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reycleViewInventory"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="760dp"
+        android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInventoryTitle">
+        tools:layout_editor_absoluteY="65dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtInventoryTitle"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reycleViewInventory"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="1dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

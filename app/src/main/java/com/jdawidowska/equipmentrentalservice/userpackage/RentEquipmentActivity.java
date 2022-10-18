@@ -38,9 +38,8 @@ public class RentEquipmentActivity extends AppCompatActivity implements RentEqui
 
     private final String url = "http://"+JaIp+":8089/api/inventory";
     RentEquipmentAdapter adapter;
-    Long idUser1 = Long.valueOf(1);
-    RentingRequest rentingRequest;
-    private String rentUrl="http://"+maxIp+":8089/api/renting/rent";
+    Long idUser1 = 1L;
+    private String rentUrl="http://"+JaIp+":8089/api/renting/rent";
 
 
     @Override
@@ -68,12 +67,14 @@ public class RentEquipmentActivity extends AppCompatActivity implements RentEqui
                     try {
                         JSONObject jsonObject;
                         jsonObject = response.getJSONObject(i);
-                        Inventory inventory1 = new Inventory();
-                        inventory1.setId(jsonObject.getLong("id"));
-                        inventory1.setItemName(jsonObject.getString("itemName"));
-                        inventory1.setAvailableAmount(jsonObject.getInt("availableAmount"));
-                        inventory1.setTotalAmount(jsonObject.getInt("totalAmount"));
-                        inventoryList.add(inventory1);
+                        Inventory inventory = new Inventory();
+                        inventory.setId(jsonObject.getLong("id"));
+                        inventory.setItemName(jsonObject.getString("itemName"));
+                        inventory.setAvailableAmount(jsonObject.getInt("availableAmount"));
+                        inventory.setTotalAmount(jsonObject.getInt("totalAmount"));
+                        if(inventory.getAvailableAmount()!=0){
+                            inventoryList.add(inventory);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -134,8 +135,6 @@ public class RentEquipmentActivity extends AppCompatActivity implements RentEqui
 
     @Override
     public void onRentBtnClicked(int position) {
-        Inventory inventoryClicked = inventoryList.get(position);
-        inventoryClicked.getId();
         rentEquipment(position);
     }
 

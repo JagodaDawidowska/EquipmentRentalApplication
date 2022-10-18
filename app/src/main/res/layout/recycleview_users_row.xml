@@ -4,55 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    app:barrierMargin="5dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:barrierMargin="5dp"
         app:cardBackgroundColor="#A8A6B3F8"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="355dp"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
 
             <TextView
                 android:id="@+id/txtRecycleViewHistoryAdminEmail"
-                android:layout_width="120dp"
-                android:layout_height="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="88dp"
+                android:layout_marginBottom="10dp"
                 android:text="TextView"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/txtRecycleViewSURNAME"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.526" />
 
             <TextView
                 android:id="@+id/txtRecycleViewHistoryAdminReturn"
-                android:layout_width="87dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txtRecycleViewSURNAME"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="30dp"
+
+                />
 
             <TextView
                 android:id="@+id/txtRecycleViewSURNAME"
-                android:layout_width="94dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="22dp"
-                android:layout_marginEnd="31dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toStartOf="@+id/txtRecycleViewHistoryAdminReturn"
-                app:layout_constraintStart_toEndOf="@+id/txtRecycleViewHistoryAdminEmail"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.517" />
+                tools:layout_editor_absoluteX="186dp"
+                android:layout_marginRight="30dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

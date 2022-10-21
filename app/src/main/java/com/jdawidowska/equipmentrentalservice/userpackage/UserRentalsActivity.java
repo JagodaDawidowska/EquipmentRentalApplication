@@ -114,6 +114,14 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
                 String message = String.valueOf(eTxtFeedbackPopUp.getText());
 
                 returnEquipment(position, message);
+                ReturnUserResponse responseClicked = list.get(position);
+                if(responseClicked.getAmount()==1){
+                    list.remove(position);
+                    adapter.notifyItemRemoved(position);
+                }
+                adapter.notifyDataSetChanged();
+                list.clear();
+                extractEquipment();
             }
         });
 
@@ -121,6 +129,7 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+
             }
         });
     }

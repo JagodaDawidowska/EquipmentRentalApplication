@@ -83,10 +83,12 @@ public class HistoryActivity extends AppCompatActivity {
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                         String rentDate = jsonObject.getString("rentDate");
                         String returnDate = jsonObject.getString("returnDate");
+
                         if (returnDate.equals("null")) {
                             userHistoryResponse.setReturnDate(null);
                         } else {
                             userHistoryResponse.setReturnDate(format.parse(returnDate));
+
                         }
                         Date dateRent2 = format.parse(rentDate);
                         userHistoryResponse.setRentDate(dateRent2);

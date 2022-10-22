@@ -129,7 +129,6 @@ public class UserRentalsActivity extends AppCompatActivity implements ReturnUser
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-
             }
         });
     }

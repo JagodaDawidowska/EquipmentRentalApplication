@@ -6,23 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".adminpackage.RentedInventoryActivity">
 
-    <Button
-        android:id="@+id/btnReturnRentals"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:text="Return"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-
-        app:layout_constraintTop_toBottomOf="@+id/recycleViewRentedInventory"
-
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_editor_absoluteY="825dp" />
-
     <TextView
         android:id="@+id/txtRentalsTitle"
         android:layout_width="wrap_content"
@@ -42,13 +25,28 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewRentedInventory"
-        android:layout_width="match_parent"
-        android:layout_height="740dp"
+        app:layout_constraintBottom_toTopOf="@id/btnReturnRentals"
+        app:layout_constraintTop_toBottomOf="@+id/txtRentalsTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRentalsTitle"
-        tools:layout_editor_absoluteY="110dp" />
+       />
+
+    <Button
+        android:id="@+id/btnReturnRentals"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Return"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

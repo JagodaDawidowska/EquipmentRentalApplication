@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.adminpackage.adapters.UserResponseAdapter;
 import com.jdawidowska.equipmentrentalservice.model.UserResponse;
+import com.jdawidowska.equipmentrentalservice.userpackage.RentEquipmentActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends AppCompatActivity implements UserResponseAdapter.OnItemClickListener, UserResponseAdapter.OnItemTouchListener{
 
     private final String url = "http://192.168.1.04:8089/api/users";
     RecyclerView recyclerView;
@@ -85,6 +87,9 @@ public class UsersActivity extends AppCompatActivity {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 userResponseAdapter = new UserResponseAdapter(getApplicationContext(), userResponseList);
                 recyclerView.setAdapter(userResponseAdapter);
+                userResponseAdapter.setOnItemClickListener(UsersActivity.this::onIdClicked);
+                userResponseAdapter.setOnItemTouchListener(UsersActivity.this::onIdTouch);
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -93,5 +98,21 @@ public class UsersActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonArrayRequest);
+    }
+
+    @Override
+    public void onIdClicked(int position) {
+        //tworze obiekt o danym id z ktorego  pozniej wyciagam dane
+        UserResponse userClicked = userResponseList.get(position);
+        getIDUser =  userClicked.getId().toString();
+        Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+        intent.putExtra("EXTRA_USER_ID", getIDUser);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onIdTouch(int position) {
+        System.out.println("touch");
     }
 }

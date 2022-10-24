@@ -4,23 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_equipment.xml" value="0.33" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_feedbakcs.xml" value="0.22" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history.xml" value="0.33" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history_user_rentals.xml" value="0.33" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_feedbakcs.xml" value="0.1" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history.xml" value="0.22" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_history_user_rentals.xml" value="0.1" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_inventory.xml" value="0.22" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_inventory_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_main2.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_menu_admin.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_menu_admin.xml" value="0.30434782608695654" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_menu_user.xml" value="0.25" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rent_equipment.xml" value="0.25" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rent_equipment.xml" value="0.1" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rentals.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_rented_inventory.xml" value="0.25" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rent5.xml" value="0.33" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rent5.xml" value="0.22" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_user_rentals.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_users.xml" value="0.33" />
+        <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/activity_users.xml" value="0.1" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/equipmentlayout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/fedback_row_test.xml" value="0.5" />
         <entry key="..\:/Users/murba/AndroidStudioProjects/EquipmentRentalService/app/src/main/res/layout/inventory_row.xml" value="0.5" />

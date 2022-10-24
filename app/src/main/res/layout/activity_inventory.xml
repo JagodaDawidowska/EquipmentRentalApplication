@@ -9,10 +9,9 @@
 
     <TextView
         android:id="@+id/txtInventoryTitle"
-        android:layout_width="155dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Inventory"
         android:textColor="#3F51B5"
@@ -22,41 +21,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reycleViewInventory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbarSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/btnReturnInventory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInventoryTitle" />
+
     <Button
         android:id="@+id/btnReturnInventory"
-        app:layout_constraintTop_toBottomOf="@+id/reycleViewInventory"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Return"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnInventoryAddItem"
-        android:layout_marginBottom="16dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnInventoryAddItem"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="55dp"
+        android:layout_height="wrap_content"
         android:text="Add equipment"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
         android:textSize="20sp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reycleViewInventory"/>
+        app:layout_constraintEnd_toStartOf="@id/btnReturnInventory"
+        app:layout_constraintTop_toTopOf="@id/btnReturnInventory"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/reycleViewInventory"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="760dp"
-        android:scrollbarSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="65dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtInventoryTitle"/>
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

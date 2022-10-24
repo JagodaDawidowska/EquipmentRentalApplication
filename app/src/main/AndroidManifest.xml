@@ -13,9 +13,6 @@
         android:theme="@style/Theme.EquipmentRentalService"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".adminpackage.EquipmentActivity"
-            android:exported="false" />
-        <activity
             android:name=".adminpackage.HistoryActivity"
             android:exported="false" />
         <activity
@@ -40,7 +37,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+
+        </activity>
         <activity
             android:name=".adminpackage.FeedbacksActivity"
             android:exported="false" />
@@ -50,7 +48,6 @@
         <activity
             android:name=".adminpackage.MenuAdminActivity"
             android:exported="true">
-
 
         </activity>
         <activity

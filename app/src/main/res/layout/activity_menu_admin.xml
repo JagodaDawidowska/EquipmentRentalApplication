@@ -8,54 +8,44 @@
 
     <TextView
         android:id="@+id/txtMenuAdminTitle"
-        android:layout_width="155dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="44dp"
-        android:gravity="center"
         android:text="Menu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:textColor="#3F51B5"
-        android:textSize="16sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnReturnMenuAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="36dp"
-        android:scrollbarSize="50dp"
-        android:text="Return"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewMenuUser"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <ListView
         android:id="@+id/listViewMenuUser"
-        android:layout_width="406dp"
-        android:layout_height="305dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtMenuAdminTitle"
+        app:layout_constraintBottom_toTopOf="@id/btnReturnMenuAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:scrollbarSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="40sp"
+        />
+
+    <Button
+        android:id="@+id/btnReturnMenuAdmin"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Logout"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMenuAdminTitle"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="306dp"
-        android:layout_height="253dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnReturnMenuAdmin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewMenuUser"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/smallhantles" />
 </androidx.constraintlayout.widget.ConstraintLayout>

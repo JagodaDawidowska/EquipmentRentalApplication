@@ -1,28 +1,24 @@
-package com.jdawidowska.equipmentrentalservice.model;
+package com.jdawidowska.equipmentrentalservice.api.dto;
 
-public class Inventory {
+public class InventoryResponse {
 
-    private Long id;
     private String itemName;
     private Integer totalAmount;
     private Integer availableAmount;
 
-    public Inventory() {
+    public InventoryResponse() {
     }
 
-    public Inventory(Long id, String itemName, Integer totalAmount, Integer availableAmount) {
-        this.id = id;
+    public InventoryResponse(String itemName, Integer totalAmount, Integer availableAmount) {
         this.itemName = itemName;
         this.totalAmount = totalAmount;
         this.availableAmount = availableAmount;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public InventoryResponse(String itemName, Integer totalAmount, Integer availableAmount, Long idUser, Long idItem) {
+        this.itemName = itemName;
+        this.totalAmount = totalAmount;
+        this.availableAmount = availableAmount;
     }
 
     public String getItemName() {
@@ -51,9 +47,8 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return "Inventory{" +
-                "id=" + id +
-                ", itemName='" + itemName + '\'' +
+        return "InventoryResponse{" +
+                "itemName='" + itemName + '\'' +
                 ", totalAmount=" + totalAmount +
                 ", availableAmount=" + availableAmount +
                 '}';

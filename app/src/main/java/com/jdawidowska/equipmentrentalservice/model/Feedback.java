@@ -1,17 +1,18 @@
 package com.jdawidowska.equipmentrentalservice.model;
 
 public class Feedback {
-    Long id;
-    Long idUser;
-    String content;
+
+    private Long id;
+    private Long idUser;
+    private String content;
+
+    public Feedback() {
+    }
 
     public Feedback(Long id, Long idUser, String content) {
         this.id = id;
         this.idUser = idUser;
         this.content = content;
-    }
-
-    public Feedback() {
     }
 
     public Long getId() {

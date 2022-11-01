@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.api.dto.UserHistoryResponse;
+import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentingHistoryResponse;
 
 import java.util.ArrayList;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<UserHistoryResponse> userHistoryResponseList;
+    ArrayList<UserRentingHistoryResponse> userRentingHistoryResponseList;
 
-    public HistoryAdapter(Context context, ArrayList<UserHistoryResponse> userHistoryResponseList) {
+    public HistoryAdapter(Context context, ArrayList<UserRentingHistoryResponse> userRentingHistoryResponseList) {
         this.inflater = LayoutInflater.from(context);
-        this.userHistoryResponseList = userHistoryResponseList;
+        this.userRentingHistoryResponseList = userRentingHistoryResponseList;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -44,11 +44,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.MyViewHolder holder, int position) {
-        holder.email.setText(userHistoryResponseList.get(position).getEmail());
-        holder.item.setText(userHistoryResponseList.get(position).getItemName());
-        holder.rentDate.setText(userHistoryResponseList.get(position).getRentDate().toString());
-        if(userHistoryResponseList.get(position).getReturnDate() != null){
-            holder.returnDate.setText(userHistoryResponseList.get(position).getReturnDate().toString());
+        holder.email.setText(userRentingHistoryResponseList.get(position).getEmail());
+        holder.item.setText(userRentingHistoryResponseList.get(position).getItemName());
+        holder.rentDate.setText(userRentingHistoryResponseList.get(position).getRentDate().toString());
+        if(userRentingHistoryResponseList.get(position).getReturnDate() != null){
+            holder.returnDate.setText(userRentingHistoryResponseList.get(position).getReturnDate().toString());
         } else {
             holder.returnDate.setText("");
         }
@@ -56,6 +56,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return userHistoryResponseList.size();
+        return userRentingHistoryResponseList.size();
     }
 }

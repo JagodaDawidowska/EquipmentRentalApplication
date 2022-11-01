@@ -18,7 +18,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.activities.admin.adapters.UserResponseAdapter;
-import com.jdawidowska.equipmentrentalservice.api.dto.UserResponse;
+import com.jdawidowska.equipmentrentalservice.api.dto.response.UserResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -15,10 +15,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Button registerBTN = findViewById(R.id.btnReturnRegister);
+        Button btnRegister = findViewById(R.id.btnReturnRegister);
 
-        registerBTN.setOnClickListener(view -> {
-            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        btnRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }

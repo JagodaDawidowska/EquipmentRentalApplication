@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice.api.dto;
+package com.jdawidowska.equipmentrentalservice.api.dto.response;
 
 public class UserResponse {
 

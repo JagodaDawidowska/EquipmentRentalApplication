@@ -2,9 +2,11 @@ package com.jdawidowska.equipmentrentalservice.api;
 
 public enum ApiEndpoints {
 
-    USER_HISTORY("history/user/DTO"),
-    USER_RENT("renting/rent"),
-    USER_INVENTORY("inventory");
+    RENT_ITEM("renting/rent"),
+    RETURN_ITEM("renting/return"),
+    USER_RENTING_HISTORY("history/user/DTO"), //TODO endpoint name
+    INVENTORY("inventory"),
+    USER_CURRENTLY_RENTED_INVENTORY("rentedInventory/user");
 
     private final String path;
 

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.api.dto.RentedInventoryResponse;
+import com.jdawidowska.equipmentrentalservice.api.dto.response.RentedInventoryResponse;
 
 import java.util.ArrayList;
 

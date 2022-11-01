@@ -15,18 +15,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnSearch = findViewById(R.id.btnRegister);
         Button btnLogin = findViewById(R.id.btnLogin);
+        Button btnRegister = findViewById(R.id.btnRegister);
 
-        btnSearch.setOnClickListener(view -> {
-        System.out.println("klik register");
-            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+        btnLogin.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
 
-        btnLogin.setOnClickListener(view -> {
-            System.out.println("klik login");
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        btnRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
     }

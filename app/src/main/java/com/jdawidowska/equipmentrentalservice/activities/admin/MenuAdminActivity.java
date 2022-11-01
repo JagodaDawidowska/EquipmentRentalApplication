@@ -21,7 +21,7 @@ public class MenuAdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_admin);
 
-        ListView menuItemsListView = findViewById(R.id.listViewMenuUser);
+        ListView menuItemsListView = findViewById(R.id.lvUserMenu);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1 , initMenuList());
         menuItemsListView.setAdapter(arrayAdapter);

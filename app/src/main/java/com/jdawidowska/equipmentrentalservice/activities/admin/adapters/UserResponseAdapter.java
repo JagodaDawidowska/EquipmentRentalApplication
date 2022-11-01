@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.api.dto.UserResponse;
+import com.jdawidowska.equipmentrentalservice.api.dto.response.UserResponse;
 
 import java.util.List;
 

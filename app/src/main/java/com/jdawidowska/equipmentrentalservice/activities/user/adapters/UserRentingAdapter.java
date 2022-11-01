@@ -13,15 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class RentEquipmentAdapter extends RecyclerView.Adapter<RentEquipmentAdapter.MyViewHolder> {
+public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.MyViewHolder> {
 
-    LayoutInflater inflater;
-    ArrayList<Inventory> inventoryArrayList;
-    public OnItemClickListener onItemClickListener;;
+    private final LayoutInflater inflater;
+    private OnItemClickListener onItemClickListener;
+    private final List<Inventory> inventoryArrayList;
 
-    public RentEquipmentAdapter(Context context, ArrayList<Inventory> inventoryArrayList){
+    public UserRentingAdapter(Context context, List<Inventory> inventoryArrayList){
         this.inflater = LayoutInflater.from(context);
         this.inventoryArrayList = inventoryArrayList;
     }
@@ -32,25 +32,24 @@ public class RentEquipmentAdapter extends RecyclerView.Adapter<RentEquipmentAdap
 
     // setter to interface to make button clickable
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
-        this.onItemClickListener=onItemClickListener;
+        this.onItemClickListener = onItemClickListener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
         TextView item;
         Button btnRent;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             item = itemView.findViewById(R.id.txtRentEquipmentRow);
             btnRent = itemView.findViewById(R.id.btnRentEquipmentRow);
 
-            btnRent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(onItemClickListener != null){
-                        int position = getAbsoluteAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            onItemClickListener.onRentBtnClicked(position);
-                        }
+            btnRent.setOnClickListener(view -> {
+                if(onItemClickListener != null){
+                    int position = getAbsoluteAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION){
+                        onItemClickListener.onRentBtnClicked(position);
                     }
                 }
             });
@@ -67,13 +66,10 @@ public class RentEquipmentAdapter extends RecyclerView.Adapter<RentEquipmentAdap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.item.setText(inventoryArrayList.get(position).getItemName());
-
     }
 
     @Override
     public int getItemCount() {
         return inventoryArrayList.size();
     }
-
-
 }

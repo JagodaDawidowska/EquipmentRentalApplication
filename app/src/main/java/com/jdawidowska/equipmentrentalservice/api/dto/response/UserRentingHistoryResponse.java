@@ -1,17 +1,18 @@
-package com.jdawidowska.equipmentrentalservice.api.dto;
+package com.jdawidowska.equipmentrentalservice.api.dto.response;
+
 import java.util.Date;
 
-public class UserHistoryResponse {
+public class UserRentingHistoryResponse {
 
     private String itemName;
     private Date rentDate;
     private Date returnDate;
     private String email;
 
-    public UserHistoryResponse() {
+    public UserRentingHistoryResponse() {
     }
 
-    public UserHistoryResponse(String itemName, Date rentDate, Date returnDate, String email) {
+    public UserRentingHistoryResponse(String itemName, Date rentDate, Date returnDate, String email) {
         this.itemName = itemName;
         this.rentDate = rentDate;
         this.returnDate = returnDate;

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.user.HistoryUserRentalsActivity">
+    tools:context=".activities.user.UserRentingHistoryActivity">
 
     <TextView
-        android:id="@+id/txtUserHistoryRentalsTitle"
+        android:id="@+id/txtUserRentalsHistoryTitle"
         android:text="History of Your rentals"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -22,9 +22,9 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewUserHistoryRentals"
+        android:id="@+id/rvUserRentalsHistory"
         app:layout_constraintBottom_toTopOf="@+id/btnReturnUserHistoryRentals"
-        app:layout_constraintTop_toBottomOf="@+id/txtUserHistoryRentalsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserRentalsHistoryTitle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"

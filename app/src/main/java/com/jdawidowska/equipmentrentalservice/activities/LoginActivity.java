@@ -14,10 +14,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         Button btnReturn = findViewById(R.id.btnReturnLogin);
 
         btnReturn.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class );
+            Intent intent = new Intent(this, MainActivity.class );
             startActivity(intent);
         });
     }

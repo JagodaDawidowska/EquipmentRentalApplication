@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.user.MenuUserActivity">
+    tools:context=".activities.user.UserMenuActivity">
 
     <TextView
-        android:id="@+id/txtMenuUserTitle1"
+        android:id="@+id/txtUserMenuTitle"
         android:text="Menu"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:textSize="30sp"
         android:gravity="center"
         android:textColor="#3F51B5"
-        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +22,7 @@
         />
 
     <ListView
-        android:id="@+id/listViewMenuUser"
-        app:layout_constraintBottom_toTopOf="@+id/btnReturnMenuUser"
-        app:layout_constraintTop_toBottomOf="@+id/txtMenuUserTitle1"
+        android:id="@+id/lvUserMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -32,21 +30,22 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:scrollbarSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserMenuTitle"
+        app:layout_constraintBottom_toTopOf="@+id/btnReturnUserNemu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <Button
-        android:id="@+id/btnReturnMenuUser"
+        android:id="@+id/btnReturnUserNemu"
+        android:text="Return"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-        android:text="Return"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

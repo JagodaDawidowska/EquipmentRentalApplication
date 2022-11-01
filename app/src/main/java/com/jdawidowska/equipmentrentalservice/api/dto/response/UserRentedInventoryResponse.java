@@ -1,15 +1,15 @@
-package com.jdawidowska.equipmentrentalservice.api.dto;
+package com.jdawidowska.equipmentrentalservice.api.dto.response;
 
-public class ReturnUserResponse {
+public class UserRentedInventoryResponse {
 
     private Long id;
     private String name;
     private Integer amount;
 
-    public ReturnUserResponse() {
+    public UserRentedInventoryResponse() {
     }
 
-    public ReturnUserResponse(Long id, String name, Integer amount) {
+    public UserRentedInventoryResponse(Long id, String name, Integer amount) {
         this.id = id;
         this.name = name;
         this.amount = amount;

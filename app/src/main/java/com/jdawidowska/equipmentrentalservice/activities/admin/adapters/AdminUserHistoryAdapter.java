@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentingHistoryResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> {
+public class AdminUserHistoryAdapter extends RecyclerView.Adapter<AdminUserHistoryAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<UserRentingHistoryResponse> userRentingHistoryResponseList;
+    List<UserRentingHistoryResponse> userRentingHistoryResponseList;
 
-    public HistoryAdapter(Context context, ArrayList<UserRentingHistoryResponse> userRentingHistoryResponseList) {
+    public AdminUserHistoryAdapter(Context context, List<UserRentingHistoryResponse> userRentingHistoryResponseList) {
         this.inflater = LayoutInflater.from(context);
         this.userRentingHistoryResponseList = userRentingHistoryResponseList;
     }
@@ -37,13 +37,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     @NonNull
     @Override
-    public HistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminUserHistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_history_response_by_id_row, parent, false);
         return new MyViewHolder(rowView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HistoryAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminUserHistoryAdapter.MyViewHolder holder, int position) {
         holder.email.setText(userRentingHistoryResponseList.get(position).getEmail());
         holder.item.setText(userRentingHistoryResponseList.get(position).getItemName());
         holder.rentDate.setText(userRentingHistoryResponseList.get(position).getRentDate().toString());

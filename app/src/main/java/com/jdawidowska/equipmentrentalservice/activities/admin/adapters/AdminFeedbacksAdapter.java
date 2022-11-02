@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.FeedbackResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class FeedbackResponseAdapter extends RecyclerView.Adapter<FeedbackResponseAdapter.MyViewHolder> {
+public class AdminFeedbacksAdapter extends RecyclerView.Adapter<AdminFeedbacksAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<FeedbackResponse> feedbackResponseList;
+    List<FeedbackResponse> feedbackResponseList;
 
-    public FeedbackResponseAdapter(Context context, ArrayList<FeedbackResponse> feedbackResponseList) {
+    public AdminFeedbacksAdapter(Context context, List<FeedbackResponse> feedbackResponseList) {
         this.inflater = LayoutInflater.from(context);
         this.feedbackResponseList = feedbackResponseList;
     }
@@ -35,13 +35,13 @@ public class FeedbackResponseAdapter extends RecyclerView.Adapter<FeedbackRespon
 
     @NonNull
     @Override
-    public FeedbackResponseAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminFeedbacksAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_feedback_row, parent, false);
         return new MyViewHolder(rowView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FeedbackResponseAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminFeedbacksAdapter.MyViewHolder holder, int position) {
         holder.email.setText(feedbackResponseList.get(position).getEmail());
         holder.content.setText(feedbackResponseList.get(position).getContent());
     }

@@ -16,7 +16,7 @@ import com.jdawidowska.equipmentrentalservice.api.dto.response.UserResponse;
 
 import java.util.List;
 
-public class UserResponseAdapter extends RecyclerView.Adapter<UserResponseAdapter.ViewHolder> {
+public class AdminUsersAdapter extends RecyclerView.Adapter<AdminUsersAdapter.ViewHolder> {
 
     LayoutInflater inflater;
     List<UserResponse> userResponseList;
@@ -24,7 +24,7 @@ public class UserResponseAdapter extends RecyclerView.Adapter<UserResponseAdapte
     public OnItemTouchListener onItemTouchListener;
 
 
-    public UserResponseAdapter(Context ctx, List<UserResponse> userResponseList){
+    public AdminUsersAdapter(Context ctx, List<UserResponse> userResponseList){
         this.inflater = LayoutInflater.from(ctx);
         this.userResponseList = userResponseList;
     }
@@ -89,13 +89,13 @@ public class UserResponseAdapter extends RecyclerView.Adapter<UserResponseAdapte
 
     @NonNull
     @Override
-    public UserResponseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminUsersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.recycleview_users_row,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserResponseAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminUsersAdapter.ViewHolder holder, int position) {
         holder.id.setText(userResponseList.get(position).getId().toString());
         holder.name.setText(userResponseList.get(position).getName());
         holder.surname.setText(userResponseList.get(position).getSurname());

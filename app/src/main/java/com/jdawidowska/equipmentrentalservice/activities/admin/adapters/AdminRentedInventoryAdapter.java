@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.RentedInventoryResponse;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class RentedInventoryResponseAdapter extends RecyclerView.Adapter<RentedInventoryResponseAdapter.MyViewHolder> {
+public class AdminRentedInventoryAdapter extends RecyclerView.Adapter<AdminRentedInventoryAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<RentedInventoryResponse> rentedInventoryResponseList;
+    List<RentedInventoryResponse> rentedInventoryResponseList;
 
-    public RentedInventoryResponseAdapter(Context applicationContext, ArrayList<RentedInventoryResponse> rentedInventoryResponseList) {
+    public AdminRentedInventoryAdapter(Context applicationContext, List<RentedInventoryResponse> rentedInventoryResponseList) {
         this.inflater = LayoutInflater.from(applicationContext);
         this.rentedInventoryResponseList = rentedInventoryResponseList;
     }
@@ -38,13 +38,13 @@ public class RentedInventoryResponseAdapter extends RecyclerView.Adapter<RentedI
 
     @NonNull
     @Override
-    public RentedInventoryResponseAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdminRentedInventoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_rented_inventory_row, parent, false);
         return new MyViewHolder(rowView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RentedInventoryResponseAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminRentedInventoryAdapter.MyViewHolder holder, int position) {
 
         holder.name.setText(rentedInventoryResponseList.get(position).getName());
         holder.surname.setText(rentedInventoryResponseList.get(position).getSurname());

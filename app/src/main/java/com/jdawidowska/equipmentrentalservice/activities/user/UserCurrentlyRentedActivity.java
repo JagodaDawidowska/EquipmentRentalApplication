@@ -23,6 +23,7 @@ import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserCurrentlyRentedAdapter;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentedInventoryResponse;
+import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +32,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity for User to:
+ * - view items that he rented,
+ * - return items he rented
+ */
 public class UserCurrentlyRentedActivity extends AppCompatActivity implements UserCurrentlyRentedAdapter.OnItemClickListener {
 
     private UserCurrentlyRentedAdapter adapter;
@@ -62,7 +68,8 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
                 USER_RENTED_INVENTORY_URL,
                 null,
                 this::handleApiSuccess,
-                this::handleApiError);
+                error -> ApiUtils.handleApiError(error, this)
+        );
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -78,17 +85,13 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
 
                 userRentedInventoryList.add(userRentedInventoryResponse);
             } catch (JSONException error) {
-                Toast.makeText(this, "Error fetching data from API " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, ApiUtils.API_ERROR + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
         adapter = new UserCurrentlyRentedAdapter(this, userRentedInventoryList);
         adapter.setOnItemClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-    }
-
-    private void handleApiError(VolleyError error) {
-        Toast.makeText(this, "Error fetching data from API " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     public void createFeedbackDialog(int position) {

@@ -4,29 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.admin.RentedInventoryActivity">
+    tools:context=".activities.admin.AdminUserHistoryActivity">
 
     <TextView
-        android:id="@+id/txtRentalsTitle"
+        android:id="@+id/txtHistoryTitle"
+        android:text="History of rentals for IdUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Rented Inventory"
+        android:gravity="center"
         android:textColor="#3F51B5"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewRentedInventory"
-        app:layout_constraintBottom_toTopOf="@id/btnReturnRentals"
-        app:layout_constraintTop_toBottomOf="@+id/txtRentalsTitle"
+        android:id="@+id/recycleViewUserHistoryID"
+        app:layout_constraintBottom_toTopOf="@+id/btnReturnUserHistoryRentals2"
+        app:layout_constraintTop_toBottomOf="@id/txtHistoryTitle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -36,10 +34,10 @@
         android:scrollbarSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-       />
+        > </androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/btnReturnRentals"
+        android:id="@+id/btnReturnUserHistoryRentals2"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
@@ -47,6 +45,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

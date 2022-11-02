@@ -16,7 +16,7 @@ import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import java.util.ArrayList;
 
 
-public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyViewHolder> {
+public class AdminInventoryAdapter extends RecyclerView.Adapter<AdminInventoryAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
     ArrayList<Inventory> inventoryList;
@@ -24,7 +24,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
     public OnItemClickListener onItemClickListener;
 
 
-    public InventoryAdapter(Context context, ArrayList<Inventory> inventoryList) {
+    public AdminInventoryAdapter(Context context, ArrayList<Inventory> inventoryList) {
         this.inflater = LayoutInflater.from(context);
         this.inventoryList = inventoryList;
     }
@@ -80,7 +80,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.inventory_row, parent, false);
-        return new InventoryAdapter.MyViewHolder(rowView);
+        return new AdminInventoryAdapter.MyViewHolder(rowView);
     }
 
     @Override

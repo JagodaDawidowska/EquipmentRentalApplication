@@ -45,22 +45,22 @@
 
         <!-- admin activities -->
         <activity
-            android:name=".activities.admin.HistoryActivity"
+            android:name=".activities.admin.AdminUserHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.admin.UsersActivity"
+            android:name=".activities.admin.AdminUsersActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.admin.InventoryActivity"
+            android:name=".activities.admin.AdminInventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.admin.FeedbacksActivity"
+            android:name=".activities.admin.AdminFeedbacksActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.admin.RentedInventoryActivity"
+            android:name=".activities.admin.AdminRentedInventoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.admin.MenuAdminActivity"
+            android:name=".activities.admin.AdminMenuActivity"
             android:exported="true" />
     </application>
 </manifest>

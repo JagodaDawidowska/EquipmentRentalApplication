@@ -19,6 +19,7 @@ import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserRentingAdapter;
+import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +28,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity for User to:
+ * - view available items
+ * - rent items
+ */
 public class UserRentingActivity extends AppCompatActivity implements UserRentingAdapter.OnItemClickListener {
 
     private RecyclerView recyclerView;
@@ -59,7 +65,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                 INVENTORY_URL,
                 null,
                 this::handleApiSuccess,
-                this::handleApiError
+                error -> ApiUtils.handleApiError(error, this)
         );
         requestQueue.add(jsonArrayRequest);
     }
@@ -85,10 +91,6 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
         adapter.setOnItemClickListener(UserRentingActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-    }
-
-    private void handleApiError(VolleyError error) {
-        Toast.makeText(this, "Error fetching data from API " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     private void rentEquipment(int position) {

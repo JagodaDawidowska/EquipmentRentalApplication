@@ -89,10 +89,10 @@ public class AdminUserHistoryActivity extends AppCompatActivity {
                 userRentingHistoryResponse.setRentDate(format.parse(jsonObject.getString("rentDate")));
 
                 String returnDate = jsonObject.getString("returnDate");
-                if (DateUtils.validateReturnDate(returnDate)) {
-                    userRentingHistoryResponse.setReturnDate(null);
-                } else {
+                if (DateUtils.isValidReturnDate(returnDate)) {
                     userRentingHistoryResponse.setReturnDate(format.parse(returnDate));
+                } else {
+                    userRentingHistoryResponse.setReturnDate(null);
                 }
 
                 userRentingHistoryResponseList.add(userRentingHistoryResponse);

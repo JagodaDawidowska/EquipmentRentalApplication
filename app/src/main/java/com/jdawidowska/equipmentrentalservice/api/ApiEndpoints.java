@@ -2,16 +2,21 @@ package com.jdawidowska.equipmentrentalservice.api;
 
 public enum ApiEndpoints {
 
+    FEEDBACK("feedback"),
+
+    INVENTORY("inventory"),
+    ADD_INVENTORY("inventory/add"),
+    REMOVE_INVENTORY("inventory/remove"), //param: idItem
+
+    ALL_CURRENTLY_RENTED_INVENTORY("rentedInventory"),
+    USER_CURRENTLY_RENTED_INVENTORY("rentedInventory/user"), //param: idUser
+
     RENT_ITEM("renting/rent"),
     RETURN_ITEM("renting/return"),
-    USER_RENTING_HISTORY("history/user/DTO"), //TODO endpoint name
-    INVENTORY("inventory"),
+
     USERS("users"),
-    ADD_INVENTORY("inventory/add"),
-    REMOVE_INVENTORY("inventory/remove"),
-    FEEDBACK("feedback/findFeedbackResponseDTO"),
-    USER_CURRENTLY_RENTED_INVENTORY("rentedInventory/user"),
-    ALL_CURRENTLY_RENTED_INVENTORY("rentedInventory/rentedInventoryResponse");
+
+    USER_RENTING_HISTORY("history/user"); //param: idUser
 
     private final String path;
 

@@ -79,7 +79,7 @@ public class AdminInventoryAdapter extends RecyclerView.Adapter<AdminInventoryAd
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.inventory_row, parent, false);
+        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_inventory_row, parent, false);
         return new AdminInventoryAdapter.MyViewHolder(rowView);
     }
 

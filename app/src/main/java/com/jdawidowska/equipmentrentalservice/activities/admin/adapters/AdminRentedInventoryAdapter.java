@@ -39,7 +39,7 @@ public class AdminRentedInventoryAdapter extends RecyclerView.Adapter<AdminRente
     @NonNull
     @Override
     public AdminRentedInventoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_rented_inventory_row, parent, false);
+        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_currently_rented_row, parent, false);
         return new MyViewHolder(rowView);
     }
 

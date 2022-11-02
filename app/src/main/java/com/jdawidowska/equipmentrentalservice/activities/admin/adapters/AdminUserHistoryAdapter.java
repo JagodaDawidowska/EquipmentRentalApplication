@@ -38,7 +38,7 @@ public class AdminUserHistoryAdapter extends RecyclerView.Adapter<AdminUserHisto
     @NonNull
     @Override
     public AdminUserHistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_history_response_by_id_row, parent, false);
+       View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_user_history_row, parent, false);
         return new MyViewHolder(rowView);
     }
 

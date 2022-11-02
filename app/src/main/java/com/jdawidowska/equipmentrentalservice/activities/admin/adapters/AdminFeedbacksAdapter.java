@@ -36,7 +36,7 @@ public class AdminFeedbacksAdapter extends RecyclerView.Adapter<AdminFeedbacksAd
     @NonNull
     @Override
     public AdminFeedbacksAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_feedback_row, parent, false);
+       View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_feedback_row, parent, false);
         return new MyViewHolder(rowView);
     }
 

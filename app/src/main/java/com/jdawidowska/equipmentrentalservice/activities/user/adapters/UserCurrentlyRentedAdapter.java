@@ -38,7 +38,7 @@ public class UserCurrentlyRentedAdapter extends RecyclerView.Adapter<UserCurrent
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_view_user_return_row, parent, false);
+        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_currently_rented_row, parent, false);
         return new MyViewHolder(rowView);
     }
 

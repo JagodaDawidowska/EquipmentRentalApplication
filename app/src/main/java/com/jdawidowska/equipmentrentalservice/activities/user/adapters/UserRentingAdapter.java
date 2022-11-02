@@ -59,7 +59,7 @@ public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_view_rent_equpipment_row, parent, false);
+        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_inventory_row, parent, false);
         return new MyViewHolder(rowView);
     }
 

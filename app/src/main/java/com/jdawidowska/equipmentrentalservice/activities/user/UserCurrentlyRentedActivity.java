@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -96,7 +95,7 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
 
     public void createFeedbackDialog(int position) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        final View feedbackPopUPView = getLayoutInflater().inflate(R.layout.popupfeedback, null);
+        final View feedbackPopUPView = getLayoutInflater().inflate(R.layout.user_add_feedback_popup, null);
         EditText eTxtFeedbackPopUp = feedbackPopUPView.findViewById(R.id.editTextAmountPopUp);
         Button btnSubmitPopUp = feedbackPopUPView.findViewById(R.id.btnSubmitFeedbackPopUp);
         Button btnReturnPopUp = feedbackPopUPView.findViewById(R.id.btnReturnEquipmentkPopUp);

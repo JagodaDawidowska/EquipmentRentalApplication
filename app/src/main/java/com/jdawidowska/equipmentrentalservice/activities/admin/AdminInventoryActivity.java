@@ -137,7 +137,7 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
 
     public void createAddEquipmentDialog() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.popup_addequipment, null);
+        final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.admin_add_equipment_popup, null);
         //editTexts
         addEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.editTextEqupmentPopUp);
         addAmountPopUp = addEquipmentPopUpView.findViewById(R.id.editTextAmountPopUp);

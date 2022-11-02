@@ -90,7 +90,7 @@ public class AdminUsersAdapter extends RecyclerView.Adapter<AdminUsersAdapter.Vi
     @NonNull
     @Override
     public AdminUsersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycleview_users_row,parent,false);
+        View view = inflater.inflate(R.layout.admin_users_row,parent,false);
         return new ViewHolder(view);
     }
 

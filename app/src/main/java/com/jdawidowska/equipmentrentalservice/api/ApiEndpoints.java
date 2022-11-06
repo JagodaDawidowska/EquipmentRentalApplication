@@ -16,6 +16,9 @@ public enum ApiEndpoints {
 
     USERS("users"),
 
+    LOGIN("login"),
+    REGISTER("register"),
+
     USER_RENTING_HISTORY("history/user"); //param: idUser
 
     private final String path;

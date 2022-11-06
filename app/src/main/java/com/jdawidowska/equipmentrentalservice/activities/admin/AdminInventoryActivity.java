@@ -203,7 +203,9 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
             // Put user JSONObject inside of another JSONObject which will be the body of the request
         } catch (JSONException e) {
             e.printStackTrace(); //TODO
+            return;
         }
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 ADD_INVENTORY_URL,

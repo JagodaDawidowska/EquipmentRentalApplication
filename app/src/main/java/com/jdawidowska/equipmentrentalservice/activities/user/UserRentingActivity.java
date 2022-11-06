@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
+import com.android.volley.Response;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -20,13 +24,16 @@ import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserRentingAdapter;
 import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
+import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Activity for User to:
@@ -50,10 +57,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
         recyclerView = findViewById(R.id.recycleViewRentEquipment);
 
         Button btnReturn = findViewById(R.id.btnReturnRentEquipment);
-        btnReturn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, UserMenuActivity.class);
-            startActivity(intent);
-        });
+        btnReturn.setOnClickListener(view -> startActivity(new Intent(this, UserMenuActivity.class)));
 
         fetchInventory();
     }
@@ -66,7 +70,31 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                 null,
                 this::handleApiSuccess,
                 error -> ApiUtils.handleApiError(error, this)
-        );
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of(
+                        "Authorization", "Bearer " + AuthTokenHolder.getAuthToken()
+                );
+            }
+
+            @Override
+            protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 200) {
+                    try {
+                        String jsonString =
+                                new String(
+                                        response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
+                        return Response.success(
+                                new JSONArray(jsonString), HttpHeaderParser.parseCacheHeaders(response));
+                    } catch (UnsupportedEncodingException | JSONException e) {
+                        return Response.error(new ParseError(e));
+                    }
+                }
+                return Response.error(new AuthFailureError("api fetching error"));
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -84,7 +112,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                     inventoryList.add(inventory);
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
+                e.printStackTrace(); //todo
             }
         }
         adapter = new UserRentingAdapter(this, inventoryList);

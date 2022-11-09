@@ -8,6 +8,7 @@ import com.jdawidowska.equipmentrentalservice.model.Role;
 
 import java.util.List;
 
+//todo handle empty token for GET methods
 public class AuthTokenHolder {
 
     private static String authToken = "";
@@ -28,7 +29,7 @@ public class AuthTokenHolder {
     }
 
     public static String getUserId() {
-        return decodeJWT().getClaim("userId").asString(); //todo nullable
+        return decodeJWT().getClaim("userId").toString(); //todo nullable
     }
 
     public static String getName() {

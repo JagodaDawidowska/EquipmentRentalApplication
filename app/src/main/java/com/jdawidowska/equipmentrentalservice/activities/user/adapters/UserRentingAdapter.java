@@ -19,11 +19,11 @@ public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.
 
     private final LayoutInflater inflater;
     private OnItemClickListener onItemClickListener;
-    private final List<Inventory> inventoryArrayList;
+    private final List<Inventory> inventoryList;
 
-    public UserRentingAdapter(Context context, List<Inventory> inventoryArrayList){
+    public UserRentingAdapter(Context context, List<Inventory> inventoryList){
         this.inflater = LayoutInflater.from(context);
-        this.inventoryArrayList = inventoryArrayList;
+        this.inventoryList = inventoryList;
     }
 
     public interface OnItemClickListener{
@@ -65,11 +65,11 @@ public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.item.setText(inventoryArrayList.get(position).getItemName());
+        holder.item.setText(inventoryList.get(position).getItemName());
     }
 
     @Override
     public int getItemCount() {
-        return inventoryArrayList.size();
+        return inventoryList.size();
     }
 }

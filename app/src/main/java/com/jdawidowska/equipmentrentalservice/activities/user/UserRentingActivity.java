@@ -15,11 +15,14 @@ import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.activities.LoginActivity;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserRentingAdapter;
@@ -69,7 +72,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                 INVENTORY_URL,
                 null,
                 this::handleApiSuccess,
-                error -> ApiUtils.handleApiError(error, this)
+                this::handleApiError
         ) {
             @Override
             public Map<String, String> getHeaders() {
@@ -80,6 +83,10 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
 
             @Override
             protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 403) {
+                    return Response.error(new AuthFailureError());
+                }
+
                 if (response.statusCode == 200) {
                     try {
                         String jsonString =
@@ -92,10 +99,18 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                         return Response.error(new ParseError(e));
                     }
                 }
-                return Response.error(new AuthFailureError("api fetching error"));
+                return Response.error(new ServerError(response));
             }
         };
         requestQueue.add(jsonArrayRequest);
+    }
+
+    private void handleApiError(VolleyError error) {
+        if (error instanceof AuthFailureError) {
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            Toast.makeText(this, "api error", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void handleApiSuccess(JSONArray response) {
@@ -132,7 +147,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
         } else {
             JSONObject body = new JSONObject();
             try {
-                body.put("idUser", 1); //TODO id user value must be passed form somewhere
+                body.put("idUser", Long.valueOf(AuthTokenHolder.getUserId()));
                 body.put("idItem", inventoryClicked.getId());
                 // Put user JSONObject inside of another JSONObject which will be the body of the request
             } catch (JSONException e) {
@@ -143,11 +158,32 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                     RENT_ITEM_URL,
                     body,
                     response -> {   //oddaje response w json:(
-                        Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show();
-                    }, error -> {
-                        Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "RENT SUCCESS", Toast.LENGTH_SHORT).show();
+                        inventoryList.clear();
+                        fetchInventory();
+                    },
+                    this::handleApiError
+            ) {
+                @Override
+                public Map<String, String> getHeaders() {
+                    return Map.of(
+                            "Authorization", "Bearer " + AuthTokenHolder.getAuthToken()
+                    );
+                }
+
+                @Override
+                protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                    if (response.statusCode == 403) {
+                        return Response.error(new AuthFailureError());
                     }
-            );
+
+                    if (response.statusCode == 200) {
+                        return Response.success(null, null);
+                    } else {
+                        return Response.error(new ParseError());
+                    }
+                }
+            };
             queue.add(jsonObjectRequest);
         }
     }

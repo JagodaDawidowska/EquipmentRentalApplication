@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login(View view) {
         if (invalidUsername() || invalidPassword()) {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Provide username and password", Toast.LENGTH_SHORT).show();
             return;
         }
 

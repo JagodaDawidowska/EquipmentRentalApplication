@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
+        JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST,
                 REGISTER_URL,
                 body,
@@ -86,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         };
-        requestQueue.add(jsonArrayRequest);
+        requestQueue.add(request);
     }
 
     private void handleApiSuccess(JSONObject response) {

@@ -12,4 +12,6 @@ public class ApiUtils {
     public static void handleApiError(VolleyError error, Context context) {
         Toast.makeText(context, "Error fetching data from API " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
+
+
 }

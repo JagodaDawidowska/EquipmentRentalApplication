@@ -12,8 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -23,6 +26,7 @@ import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserCurre
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentedInventoryResponse;
 import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
+import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +34,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Activity for User to:
@@ -68,7 +73,14 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
                 null,
                 this::handleApiSuccess,
                 error -> ApiUtils.handleApiError(error, this)
-        );
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of(
+                        "Authorization", "Bearer " + AuthTokenHolder.getAuthToken()
+                );
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 

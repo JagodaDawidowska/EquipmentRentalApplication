@@ -1,4 +1,4 @@
-package com.jdawidowska.equipmentrentalservice.activities.admin.adapters;
+package com.jdawidowska.equipmentrentalservice.activities.common.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,21 +14,20 @@ import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentingHistor
 
 import java.util.List;
 
-public class AdminUserHistoryAdapter extends RecyclerView.Adapter<AdminUserHistoryAdapter.MyViewHolder> {
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> {
 
     LayoutInflater inflater;
     List<UserRentingHistoryResponse> userRentingHistoryResponseList;
 
-    public AdminUserHistoryAdapter(Context context, List<UserRentingHistoryResponse> userRentingHistoryResponseList) {
+    public HistoryAdapter(Context context, List<UserRentingHistoryResponse> userRentingHistoryResponseList) {
         this.inflater = LayoutInflater.from(context);
         this.userRentingHistoryResponseList = userRentingHistoryResponseList;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView email, item, rentDate, returnDate;
+        TextView item, rentDate, returnDate;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            email = itemView.findViewById(R.id.txtRecycleViewHistoryAdminEmail);
             item = itemView.findViewById(R.id.txtRecycleViewHistoryAdminItem);
             rentDate = itemView.findViewById(R.id.txtRecycleViewHistoryAdminRent);
             returnDate = itemView.findViewById(R.id.txtRecycleViewHistoryAdminReturn);
@@ -37,18 +36,17 @@ public class AdminUserHistoryAdapter extends RecyclerView.Adapter<AdminUserHisto
 
     @NonNull
     @Override
-    public AdminUserHistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HistoryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View rowView = LayoutInflater.from(parent.getContext()).inflate(R.layout.admin_user_history_row, parent, false);
         return new MyViewHolder(rowView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdminUserHistoryAdapter.MyViewHolder holder, int position) {
-        holder.email.setText(userRentingHistoryResponseList.get(position).getEmail());
+    public void onBindViewHolder(@NonNull HistoryAdapter.MyViewHolder holder, int position) {
         holder.item.setText(userRentingHistoryResponseList.get(position).getItemName());
-        holder.rentDate.setText(userRentingHistoryResponseList.get(position).getRentDate().toString());
+        holder.rentDate.setText("Rent date: " + userRentingHistoryResponseList.get(position).getRentDate().toString());
         if(userRentingHistoryResponseList.get(position).getReturnDate() != null){
-            holder.returnDate.setText(userRentingHistoryResponseList.get(position).getReturnDate().toString());
+            holder.returnDate.setText("Return date: " + userRentingHistoryResponseList.get(position).getReturnDate().toString());
         } else {
             holder.returnDate.setText("");
         }

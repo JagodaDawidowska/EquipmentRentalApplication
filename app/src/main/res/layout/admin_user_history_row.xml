@@ -8,7 +8,7 @@
     android:layout_marginEnd="5dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:barrierMargin="5dp"
         app:cardBackgroundColor="#A8A6B3F8"
         app:cardCornerRadius="20dp"
@@ -18,62 +18,42 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txtRecycleViewHistoryAdminEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="Email"
-                android:textSize="15dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/txtRecycleViewHistoryAdminItem"
-                />
+            android:layout_height="80dp">
 
             <TextView
                 android:id="@+id/txtRecycleViewHistoryAdminItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal|center_vertical"
                 android:text="Item"
                 android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/txtRecycleViewHistoryAdminRent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
 
             <TextView
                 android:id="@+id/txtRecycleViewHistoryAdminRent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="40dp"
-                android:gravity="start"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:text="Rent"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <TextView
                 android:id="@+id/txtRecycleViewHistoryAdminReturn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:gravity="start"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:text="Return"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="16dp"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRecycleViewHistoryAdminRent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

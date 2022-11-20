@@ -44,21 +44,24 @@ public class UserCurrentlyRentedAdapter extends RecyclerView.Adapter<UserCurrent
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.item.setText(userRentedInventoryResponseList.get(position).getName());
-        holder.amount.setText(userRentedInventoryResponseList.get(position).getAmount().toString());
+        holder.itemNameAndAmount.setText(formatText(position));
+    }
+
+    private String formatText(int itemPosition) {
+        UserRentedInventoryResponse rentedItem = userRentedInventoryResponseList.get(itemPosition);
+        return rentedItem.getName() + " " + rentedItem.getAmount();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView item, amount;
-        Button button;
+        TextView itemNameAndAmount;
+        Button bReturnItem;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            item = itemView.findViewById(R.id.txtItemRetunRow);
-            amount = itemView.findViewById(R.id.txtAmountReturnRow);
-            button = itemView.findViewById(R.id.btnReturnUserRow);
-            button.setOnClickListener(view -> {
+            itemNameAndAmount = itemView.findViewById(R.id.txtItemRetunRow);
+            bReturnItem = itemView.findViewById(R.id.btnReturnItem);
+            bReturnItem.setOnClickListener(view -> {
                 if (onItemClickListener != null) {
                     int position = getAbsoluteAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/popup_addequipment"
     android:layout_width="350dp"
-    android:layout_height="400dp"
+    android:layout_height="190dp"
     android:layout_gravity="center"
     android:bottomLeftRadius="20dp"
     android:bottomRightRadius="20dp"
@@ -17,43 +17,38 @@
     tools:layout_editor_absoluteY="66dp">
 
     <Button
-        android:id="@+id/btnPopup_addequipment_add"
+        android:id="@+id/add_equipment_popup_add_item_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="Add"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReturnEquipmentkPopUp"
-        app:layout_constraintHorizontal_bias="0.619"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAmountPopUp"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintEnd_toStartOf="@+id/add_equipment_popup_return_button"
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_amount" />
 
     <Button
-        android:id="@+id/btnReturnEquipmentkPopUp"
+        android:id="@+id/add_equipment_popup_return_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="56dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="Return"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAmountPopUp"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_amount" />
 
     <EditText
-        android:id="@+id/editTextAmountPopUp"
-        android:layout_width="296dp"
+        android:id="@+id/add_equipment_popup_item_amount"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="10dp"
         android:background="#94A3F6"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
@@ -66,27 +61,22 @@
         app:circularflow_defaultRadius="20dp"
         app:layout_constraintCircleRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_name" />
 
     <EditText
-        android:id="@+id/editTextEqupmentPopUp"
-        android:layout_width="296dp"
+        android:id="@+id/add_equipment_popup_item_name"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:background="#94A3F6"
         android:ems="10"
         android:gravity="center"
         android:hint="Add your equipment (name)"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAmountPopUp"
         app:layout_constraintCircleRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

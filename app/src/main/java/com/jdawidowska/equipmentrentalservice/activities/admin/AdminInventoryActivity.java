@@ -1,6 +1,7 @@
 package com.jdawidowska.equipmentrentalservice.activities.admin;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,23 +13,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.activities.LoginActivity;
 import com.jdawidowska.equipmentrentalservice.activities.admin.adapters.AdminInventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
+import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentedInventoryResponse;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
+import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Activity for Admin to:
@@ -38,22 +51,19 @@ import java.util.ArrayList;
  */
 public class AdminInventoryActivity extends AppCompatActivity implements AdminInventoryAdapter.OnItemClickListener {
 
-    RecyclerView recyclerView;
-    AdminInventoryAdapter adapter;
-
+    private RecyclerView recyclerView;
+    private AdminInventoryAdapter adapter;
     private final ArrayList<Inventory> inventoryList = new ArrayList<>();
     private final String INVENTORY_URL = ApiEndpoints.INVENTORY.getPath();
     private final String ADD_INVENTORY_URL = ApiEndpoints.ADD_INVENTORY.getPath();
     private String REMOVE_INVENTORY_URL = ApiEndpoints.REMOVE_INVENTORY.getPath();
-
-    private EditText addEquipmentPopUp, addAmountPopUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_inventory);
 
-        recyclerView = findViewById(R.id.reycleViewInventory);
+        recyclerView = findViewById(R.id.recycleViewInventory);
 
         Button btnReturn = findViewById(R.id.btnReturnInventory);
         btnReturn.setOnClickListener(view -> {
@@ -67,6 +77,14 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
         fetchInventory();
     }
 
+    private void handleApiError(VolleyError error) {
+        if (error instanceof AuthFailureError) {
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            Toast.makeText(this, "api error", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void fetchInventory() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
@@ -74,8 +92,34 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
                 INVENTORY_URL,
                 null,
                 this::handleApiSuccess,
-                error -> ApiUtils.handleApiError(error, this)
-        );
+                this::handleApiError
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of("Authorization", "Bearer " + AuthTokenHolder.getAuthToken());
+            }
+
+            @Override
+            protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 403) {
+                    return Response.error(new AuthFailureError());
+                }
+
+                if (response.statusCode == 200) {
+                    try {
+                        String jsonString = new String(
+                                response.data,
+                                HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET)
+                        );
+                        return Response.success(
+                                new JSONArray(jsonString), HttpHeaderParser.parseCacheHeaders(response));
+                    } catch (UnsupportedEncodingException | JSONException e) {
+                        return Response.error(new ParseError(e));
+                    }
+                }
+                return Response.error(new ServerError(response));
+            }
+        };
         requestQueue.add(jsonArrayRequest);
     }
 
@@ -114,9 +158,26 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
                 REMOVE_INVENTORY_URL,
-                response -> Toast.makeText(this, response, Toast.LENGTH_SHORT).show(), //TODO
-                error -> Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
-        );
+                response -> Toast.makeText(this, "Item removed", Toast.LENGTH_SHORT).show(),
+                this::handleApiError
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of("Authorization", "Bearer " + AuthTokenHolder.getAuthToken());
+            }
+
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                switch(response.statusCode) {
+                    case 403:
+                        return Response.error(new AuthFailureError());
+                    case 404:
+                        return Response.error(new ServerError(response));
+                    default:
+                        return Response.success(null, null);
+                }
+            }
+        };
         queue.add(stringRequest);
     }
 
@@ -135,47 +196,7 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
         }
     }
 
-    public void createAddEquipmentDialog() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.admin_add_equipment_popup, null);
-        //editTexts
-        addEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.editTextEqupmentPopUp);
-        addAmountPopUp = addEquipmentPopUpView.findViewById(R.id.editTextAmountPopUp);
-        //buttons
-        Button btnSaveEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.btnPopup_addequipment_add);
-        Button returnEquipmentPopUp = addEquipmentPopUpView.findViewById(R.id.btnReturnEquipmentkPopUp);
-
-        dialogBuilder.setView(addEquipmentPopUpView);
-        AlertDialog dialog = dialogBuilder.create();
-        dialog.show();
-
-        btnSaveEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (addEquipmentPopUp.getText().toString().isEmpty() || addAmountPopUp.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please enter both values", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!isInteger(addAmountPopUp.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Please enter a number", Toast.LENGTH_SHORT).show();
-                } else {
-                    volleyAddRequest();
-                }
-            }
-        });
-
-        returnEquipmentPopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-                inventoryList.clear();
-                adapter.notifyDataSetChanged();
-                fetchInventory();
-            }
-        });
-    }
-
-    boolean isInteger(String string) {
+    private boolean isInteger(String string) {
         try {
             Integer.parseInt(string);
             return true;
@@ -184,23 +205,49 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
         }
     }
 
-    public void volleyAddRequest() {
+    public void createAddEquipmentDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        final View addEquipmentPopUpView = getLayoutInflater().inflate(R.layout.admin_add_equipment_popup, null);
+        //editTexts
+        EditText etItemName = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_item_name);
+        EditText etItemAmount = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_item_amount);
+        //buttons
+        Button btnAddItem = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_add_item_button);
+        Button btnReturn = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_return_button);
+
+        dialogBuilder.setView(addEquipmentPopUpView);
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
+
+        btnAddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String itemName = etItemName.getText().toString();
+                String itemAmount = etItemAmount.getText().toString();
+
+                if (itemName.isEmpty() || itemAmount.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter both values", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isInteger(itemAmount)) {
+                    Toast.makeText(getApplicationContext(), "Please enter a number", Toast.LENGTH_SHORT).show();
+                } else {
+                    addNewEquipmentItem(itemName, itemAmount, dialog);
+                }
+            }
+        });
+
+        btnReturn.setOnClickListener(view -> dialog.dismiss());
+    }
+
+    private void addNewEquipmentItem(String itemName, String itemAmount, Dialog addItemDialog) {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-        // user object that we need to send
-        // body of the request
         JSONObject body = new JSONObject();
-
-        String equipmentName = addEquipmentPopUp.getText().toString();
-        String equipmentAmount = addAmountPopUp.getText().toString();
-
         try {
-            // Put user attributes in a JSONObject
-            body.put("itemName", equipmentName);
-            body.put("totalAmount", equipmentAmount);
-            body.put("availableAmount", equipmentAmount);
-
-            // Put user JSONObject inside of another JSONObject which will be the body of the request
+            body.put("itemName", itemName);
+            body.put("totalAmount", itemAmount);
+            body.put("availableAmount", itemAmount);
         } catch (JSONException e) {
             e.printStackTrace(); //TODO
             return;
@@ -211,11 +258,35 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
                 ADD_INVENTORY_URL,
                 body,
                 response -> {
-                    Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show(); //TODO
-                }, error -> {
-                    Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                    //moze tych linijek brakuje ?
+                    /*UserRentedInventoryResponse responseClicked = userRentedInventoryList.get(position);
+                    if (responseClicked.getAmount() == 1) {
+                        userRentedInventoryList.remove(position);
+                        adapter.notifyItemRemoved(position);
+                    }
+                    adapter.notifyDataSetChanged();
+                    userRentedInventoryList.clear();
+                    fetchCurrentlyRentedInventory();*/
+
+                    addItemDialog.dismiss();
+                    Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();
+                },
+                this::handleApiError
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of("Authorization", "Bearer " + AuthTokenHolder.getAuthToken());
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 403) {
+                    return Response.error(new AuthFailureError());
                 }
-        );
+                return Response.success(null, null);
+            }
+        };
         queue.add(jsonObjectRequest);
     }
 }

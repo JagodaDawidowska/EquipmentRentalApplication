@@ -14,14 +14,19 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.activities.LoginActivity;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserCurrentlyRentedAdapter;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentedInventoryResponse;
@@ -32,6 +37,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +52,7 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
     private UserCurrentlyRentedAdapter adapter;
     private RecyclerView recyclerView;
     private final List<UserRentedInventoryResponse> userRentedInventoryList = new ArrayList<>();
-    private final String USER_RENTED_INVENTORY_URL = ApiEndpoints.USER_CURRENTLY_RENTED_INVENTORY.getPath() + "/1"; //TODO pass user ID
+    private final String USER_RENTED_INVENTORY_URL = ApiEndpoints.USER_CURRENTLY_RENTED_INVENTORY.getPath() + AuthTokenHolder.getUserId();
     private final String RETURN_ITEM_URL = ApiEndpoints.RETURN_ITEM.getPath();
 
     @Override
@@ -65,6 +71,14 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
         fetchCurrentlyRentedInventory();
     }
 
+    private void handleApiError(VolleyError error) {
+        if (error instanceof AuthFailureError) {
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            Toast.makeText(this, "api error", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void fetchCurrentlyRentedInventory() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
@@ -72,13 +86,32 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
                 USER_RENTED_INVENTORY_URL,
                 null,
                 this::handleApiSuccess,
-                error -> ApiUtils.handleApiError(error, this)
+                this::handleApiError
         ) {
             @Override
             public Map<String, String> getHeaders() {
-                return Map.of(
-                        "Authorization", "Bearer " + AuthTokenHolder.getAuthToken()
-                );
+                return Map.of("Authorization", "Bearer " + AuthTokenHolder.getAuthToken());
+            }
+
+            @Override
+            protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 403) {
+                    return Response.error(new AuthFailureError());
+                }
+
+                if (response.statusCode == 200) {
+                    try {
+                        String jsonString = new String(
+                                        response.data,
+                                        HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET)
+                        );
+                        return Response.success(
+                                new JSONArray(jsonString), HttpHeaderParser.parseCacheHeaders(response));
+                    } catch (UnsupportedEncodingException | JSONException e) {
+                        return Response.error(new ParseError(e));
+                    }
+                }
+                return Response.error(new ServerError(response));
             }
         };
         requestQueue.add(jsonArrayRequest);
@@ -108,9 +141,9 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
     public void createFeedbackDialog(int position) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         final View feedbackPopUPView = getLayoutInflater().inflate(R.layout.user_add_feedback_popup, null);
-        EditText eTxtFeedbackPopUp = feedbackPopUPView.findViewById(R.id.editTextAmountPopUp);
+        EditText eTxtFeedbackPopUp = feedbackPopUPView.findViewById(R.id.add_equipment_popup_item_amount);
         Button btnSubmitPopUp = feedbackPopUPView.findViewById(R.id.btnSubmitFeedbackPopUp);
-        Button btnReturnPopUp = feedbackPopUPView.findViewById(R.id.btnReturnEquipmentkPopUp);
+        Button btnReturnPopUp = feedbackPopUPView.findViewById(R.id.add_equipment_popup_return_button);
 
         dialogBuilder.setView(feedbackPopUPView);
         AlertDialog dialog = dialogBuilder.create();
@@ -118,16 +151,7 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
 
         btnSubmitPopUp.setOnClickListener(view -> {
             String message = String.valueOf(eTxtFeedbackPopUp.getText());
-
-            returnEquipment(position, message);
-            UserRentedInventoryResponse responseClicked = userRentedInventoryList.get(position);
-            if (responseClicked.getAmount() == 1) {
-                userRentedInventoryList.remove(position);
-                adapter.notifyItemRemoved(position);
-            }
-            adapter.notifyDataSetChanged();
-            userRentedInventoryList.clear();
-            fetchCurrentlyRentedInventory();
+            returnEquipment(position, message, dialog);
         });
 
         btnReturnPopUp.setOnClickListener(view -> dialog.dismiss());
@@ -138,7 +162,7 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
         createFeedbackDialog(position);
     }
 
-    private void returnEquipment(int position, String message) {
+    private void returnEquipment(int position, String message, AlertDialog feedbackDialog) {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         //do wyciagniecia idrentedinventory
@@ -153,17 +177,44 @@ public class UserCurrentlyRentedActivity extends AppCompatActivity implements Us
             // Put user JSONObject inside of another JSONObject which will be the body of the request
         } catch (JSONException e) {
             e.printStackTrace();
+            return;
         }
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 RETURN_ITEM_URL,
                 body,
-                response -> {   //oddaje response w json:(
-                    Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show();
-                }, error -> {
-                    Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
+                response -> {
+                    UserRentedInventoryResponse responseClicked = userRentedInventoryList.get(position);
+                    if (responseClicked.getAmount() == 1) {
+                        userRentedInventoryList.remove(position);
+                        adapter.notifyItemRemoved(position);
+                    }
+                    adapter.notifyDataSetChanged();
+                    userRentedInventoryList.clear();
+                    fetchCurrentlyRentedInventory();
+
+                    feedbackDialog.dismiss();
+                    Toast.makeText(this, "RETURN SUCCESS", Toast.LENGTH_SHORT).show();
+                },
+                this::handleApiError
+        ){
+            @Override
+            public Map<String, String> getHeaders() {
+                return Map.of("Authorization", "Bearer " + AuthTokenHolder.getAuthToken());
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode == 403) {
+                    return Response.error(new AuthFailureError());
                 }
-        );
+
+                if (response.statusCode == 200) {
+                    return Response.success(null, null);
+                }
+                return Response.error(new ServerError(response));
+            }
+        };
 
         queue.add(jsonObjectRequest);
     }

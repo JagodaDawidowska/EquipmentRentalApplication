@@ -6,10 +6,10 @@ public enum ApiEndpoints {
 
     INVENTORY("inventory"),
     ADD_INVENTORY("inventory/add"),
-    REMOVE_INVENTORY("inventory/remove"), //param: idItem
+    REMOVE_INVENTORY("inventory/remove/"), //param: idItem
 
     ALL_CURRENTLY_RENTED_INVENTORY("rentedInventory"),
-    USER_CURRENTLY_RENTED_INVENTORY("rentedInventory/user"), //param: idUser
+    USER_CURRENTLY_RENTED_INVENTORY("rentedInventory/user/"), //param: idUser
 
     RENT_ITEM("renting/rent"),
     RETURN_ITEM("renting/return"),
@@ -19,7 +19,7 @@ public enum ApiEndpoints {
     LOGIN("login"),
     REGISTER("register"),
 
-    USER_RENTING_HISTORY("history/user"); //param: idUser
+    USER_RENTING_HISTORY("history/user/"); //param: idUser
 
     private final String path;
 

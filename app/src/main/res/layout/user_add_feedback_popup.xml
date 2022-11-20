@@ -4,51 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/popUpLayout"
     android:layout_width="350dp"
-    android:layout_height="600dp"
+    android:layout_height="300dp"
     android:layout_gravity="center"
     android:layout_margin="10dp"
     android:rotationX="-360">
 
     <Button
         android:id="@+id/btnSubmitFeedbackPopUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAmountPopUp" />
+        app:layout_constraintEnd_toStartOf="@+id/add_equipment_popup_return_button" />
 
     <Button
-        android:id="@+id/btnReturnEquipmentkPopUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="101dp"
-        android:layout_marginBottom="24dp"
+        android:id="@+id/add_equipment_popup_return_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Return"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAmountPopUp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editTextAmountPopUp"
-        android:layout_width="313dp"
-        android:layout_height="373dp"
+        android:id="@+id/add_equipment_popup_item_amount"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#94A3F6"
         android:ems="10"
         android:gravity="center"
         android:hint="Add your feedback"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmitFeedbackPopUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

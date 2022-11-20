@@ -89,10 +89,10 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
 
                 if (response.statusCode == 200) {
                     try {
-                        String jsonString =
-                                new String(
+                        String jsonString = new String(
                                         response.data,
-                                        HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
+                                        HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET)
+                        );
                         return Response.success(
                                 new JSONArray(jsonString), HttpHeaderParser.parseCacheHeaders(response));
                     } catch (UnsupportedEncodingException | JSONException e) {

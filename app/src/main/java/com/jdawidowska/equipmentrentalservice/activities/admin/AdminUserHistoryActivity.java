@@ -14,7 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.jdawidowska.equipmentrentalservice.R;
-import com.jdawidowska.equipmentrentalservice.activities.admin.adapters.AdminUserHistoryAdapter;
+import com.jdawidowska.equipmentrentalservice.activities.common.adapters.HistoryAdapter;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentingHistoryResponse;
 import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
@@ -36,7 +36,7 @@ import java.util.List;
 public class AdminUserHistoryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private AdminUserHistoryAdapter adminUserHistoryAdapter;
+    private HistoryAdapter historyAdapter;
 
     private String USER_RENTING_HISTORY_URL = ApiEndpoints.USER_RENTING_HISTORY.getPath();
     private final List<UserRentingHistoryResponse> userRentingHistoryResponseList = new ArrayList<>();
@@ -103,8 +103,8 @@ public class AdminUserHistoryActivity extends AppCompatActivity {
         if (userRentingHistoryResponseList.isEmpty()) {
             Toast.makeText(AdminUserHistoryActivity.this, "User with this Id has not rent anything yet", Toast.LENGTH_LONG).show();
         }
-        adminUserHistoryAdapter = new AdminUserHistoryAdapter(this, userRentingHistoryResponseList);
+        historyAdapter = new HistoryAdapter(this, userRentingHistoryResponseList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adminUserHistoryAdapter);
+        recyclerView.setAdapter(historyAdapter);
     }
 }

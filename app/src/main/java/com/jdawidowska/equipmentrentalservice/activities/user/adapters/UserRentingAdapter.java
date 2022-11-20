@@ -37,12 +37,12 @@ public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView item;
+        TextView tvItemNameAndAmounts;
         Button btnRent;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            item = itemView.findViewById(R.id.txtRentEquipmentRow);
+            tvItemNameAndAmounts = itemView.findViewById(R.id.txtRentEquipmentRow);
             btnRent = itemView.findViewById(R.id.btnRentEquipmentRow);
 
             btnRent.setOnClickListener(view -> {
@@ -65,7 +65,12 @@ public class UserRentingAdapter extends RecyclerView.Adapter<UserRentingAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.item.setText(inventoryList.get(position).getItemName());
+        holder.tvItemNameAndAmounts.setText(formatDisplayText(position));
+    }
+
+    private String formatDisplayText(int itemPosition) {
+        Inventory inventory = inventoryList.get(itemPosition);
+        return inventory.getItemName() + " " + inventory.getAvailableAmount() + "/" + inventory.getTotalAmount();
     }
 
     @Override

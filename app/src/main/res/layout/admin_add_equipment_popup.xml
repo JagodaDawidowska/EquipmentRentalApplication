@@ -27,11 +27,11 @@
         android:text="Add"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/add_equipment_popup_return_button"
+        app:layout_constraintEnd_toStartOf="@+id/btnReturnRentPopup"
         app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_amount" />
 
     <Button
-        android:id="@+id/add_equipment_popup_return_button"
+        android:id="@+id/btnReturnRentPopup"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"

@@ -16,6 +16,10 @@ public class AuthTokenHolder {
     private AuthTokenHolder() {
     }
 
+    public static void clearAuthToken() {
+        authToken = "";
+    }
+
     public static String getAuthToken() {
         return authToken;
     }

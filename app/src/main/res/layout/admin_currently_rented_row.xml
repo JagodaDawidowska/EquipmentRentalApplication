@@ -13,6 +13,7 @@
         app:barrierMargin="5dp"
         app:cardBackgroundColor="#A8A6B3F8"
         app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -24,60 +25,57 @@
 
             <TextView
                 android:id="@+id/RItxtRecycleViewAMOUNT"
-                android:layout_width="127dp"
-                android:layout_height="27dp"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="245dp"
-                tools:layout_editor_absoluteY="40dp"
-                app:layout_constraintTop_toBottomOf="@+id/RIRecycleViewITEM"
-                app:layout_constraintStart_toStartOf="@id/RIRecycleViewITEM"
-                android:textSize="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                />
-
-            <TextView
-                android:id="@+id/txtRecycleViewHistoryAdminReturn"
-                android:layout_width="157dp"
+                android:layout_width="0dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/RItxtRecycleViewUserSURNAME1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.259"
-                android:textSize="15dp"
-                />
-
-            <TextView
-                android:id="@+id/RItxtRecycleViewUserSURNAME1"
-                android:layout_width="155dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="TextView"
                 android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/RItxtRecycleViewUserSURNAME1"
+                app:layout_constraintTop_toBottomOf="@+id/RIRecycleViewITEM" />
+
+            <TextView
+                android:id="@+id/tvAdminUsersRowName"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="TextView"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/RItxtRecycleViewUserSURNAME1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRecycleViewHistoryAdminReturn" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.259" />
+
+            <TextView
+                android:id="@+id/RItxtRecycleViewUserSURNAME1"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="TextView"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/RIRecycleViewITEM"
-                android:layout_width="146dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginRight="10dp"
                 android:text="TextView"
-                android:textStyle="bold"
                 android:textSize="15dp"
-                android:layout_marginBottom="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/RItxtRecycleViewAMOUNT"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.142" />
+                app:layout_constraintStart_toEndOf="@+id/tvAdminUsersRowName"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -47,13 +47,14 @@ public class AdminUsersAdapter extends RecyclerView.Adapter<AdminUsersAdapter.Vi
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView id, name, surname;
+        TextView id, name, surname, address;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.txtRecycleViewHistoryAdminEmail);
-            name = itemView.findViewById(R.id.txtRecycleViewHistoryAdminReturn);
-            surname = itemView.findViewById(R.id.txtRecycleViewSURNAME);
+            id = itemView.findViewById(R.id.tvAdminUsersRowId);
+            name = itemView.findViewById(R.id.tvAdminUsersRowName);
+            surname = itemView.findViewById(R.id.tvAdminUsersRowSurname);
+            address = itemView.findViewById(R.id.tvAdminUsersRowAddress);
 
             id.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,6 +100,7 @@ public class AdminUsersAdapter extends RecyclerView.Adapter<AdminUsersAdapter.Vi
         holder.id.setText(userResponseList.get(position).getId().toString());
         holder.name.setText(userResponseList.get(position).getName());
         holder.surname.setText(userResponseList.get(position).getSurname());
+        holder.address.setText(userResponseList.get(position).getAddress());
     }
 
     @Override

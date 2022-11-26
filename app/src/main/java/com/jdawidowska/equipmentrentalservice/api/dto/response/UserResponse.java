@@ -5,14 +5,16 @@ public class UserResponse {
     private Long id;
     private String name;
     private String surname;
+    private String address;
 
     public UserResponse() {
     }
 
-    public UserResponse(Long id, String name, String surname) {
+    public UserResponse(Long id, String name, String surname, String address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.address = address;
     }
 
     public Long getId() {
@@ -39,12 +41,21 @@ public class UserResponse {
         this.surname = surname;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "UserREsponse{" +
+        return "UserResponse{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

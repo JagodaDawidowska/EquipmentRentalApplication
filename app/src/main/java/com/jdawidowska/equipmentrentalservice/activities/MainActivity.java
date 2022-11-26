@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(view -> startActivity(new Intent(this, LoginActivity.class)));
         btnRegister.setOnClickListener(view -> startActivity(new Intent(this, RegisterActivity.class)));
+
+        AuthTokenHolder.clearAuthToken();
 
         handleMessages(getIntent());
     }

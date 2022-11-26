@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -26,7 +28,6 @@ import com.jdawidowska.equipmentrentalservice.activities.LoginActivity;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.activities.user.adapters.UserRentingAdapter;
-import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
 import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
 
 import org.json.JSONArray;
@@ -149,7 +150,6 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
             try {
                 body.put("idUser", Long.valueOf(AuthTokenHolder.getUserId()));
                 body.put("idItem", inventoryClicked.getId());
-                // Put user JSONObject inside of another JSONObject which will be the body of the request
             } catch (JSONException e) {
                 e.printStackTrace(); //TODO
             }
@@ -157,11 +157,7 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
                     Request.Method.POST,
                     RENT_ITEM_URL,
                     body,
-                    response -> {   //oddaje response w json:(
-                        Toast.makeText(this, "RENT SUCCESS", Toast.LENGTH_SHORT).show();
-                        inventoryList.clear();
-                        fetchInventory();
-                    },
+                    this::handleRentApiSuccess,
                     this::handleApiError
             ) {
                 @Override
@@ -186,6 +182,26 @@ public class UserRentingActivity extends AppCompatActivity implements UserRentin
             };
             queue.add(jsonObjectRequest);
         }
+    }
+
+    private void handleRentApiSuccess(JSONObject response) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View popupView = getLayoutInflater().inflate(R.layout.user_rent_info_popup, null);
+        dialogBuilder.setView(popupView);
+
+        Button bReturn = popupView.findViewById(R.id.btnReturnRentPopup);
+
+        AlertDialog dialog = dialogBuilder.create();
+        dialog.show();
+
+        bReturn.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+
+        Toast.makeText(this, "RENT SUCCESS", Toast.LENGTH_SHORT).show();
+        inventoryList.clear();
+        fetchInventory();
     }
 
     @Override

@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import com.jdawidowska.equipmentrentalservice.R;
+import com.jdawidowska.equipmentrentalservice.activities.MainActivity;
+
 import java.util.List;
 
 public class AdminMenuActivity extends AppCompatActivity {
@@ -29,6 +32,9 @@ public class AdminMenuActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 menuItems
         );
+
+        Button btnReturn = findViewById(R.id.btnReturnMenuAdmin);
+        btnReturn.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
 
         ListView listView = findViewById(R.id.lvUserMenu);
         listView.setAdapter(arrayAdapter);

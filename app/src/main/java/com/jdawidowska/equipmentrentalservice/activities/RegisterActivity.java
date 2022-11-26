@@ -29,10 +29,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText etName;
-    private EditText etSurname;
-    private EditText etEmail;
-    private EditText etPassword;
+    private EditText etName, etSurname, etEmail, etPassword, etAddress;
 
     private final String REGISTER_URL = ApiEndpoints.REGISTER.getPath();
 
@@ -41,10 +38,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etName = findViewById(R.id.eTxtname);
+        etName = findViewById(R.id.eTxtName);
         etSurname = findViewById(R.id.eTxtSurname);
         etEmail = findViewById(R.id.eTxtEmail2);
         etPassword = findViewById(R.id.eTxtPassword2);
+        etAddress = findViewById(R.id.eTxtAddress);
 
         Button btnReturn = findViewById(R.id.btnReturnRegister);
         btnReturn.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
@@ -62,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             body.put("surname", validateSurname());
             body.put("email", validateEmail());
             body.put("password", validatePassword());
+            body.put("address", validateAddress());
         } catch (JSONException e) {
             e.printStackTrace(); //TODO
             return;
@@ -120,6 +119,16 @@ public class RegisterActivity extends AppCompatActivity {
             return surname;
         } else {
             throw new IllegalArgumentException("Please input proper surname");
+        }
+    }
+
+    private String validateAddress() throws IllegalArgumentException {
+        String address = etAddress.getText().toString();
+
+        if (!address.isEmpty() && address.length() > 10) {
+            return address;
+        } else {
+            throw new IllegalArgumentException("Please input proper address");
         }
     }
 

@@ -28,8 +28,8 @@ public class AdminFeedbacksAdapter extends RecyclerView.Adapter<AdminFeedbacksAd
         TextView email, content;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            email = itemView.findViewById(R.id.FRecycleViewEMAIL);
-            content = itemView.findViewById(R.id.FRecycleViewCONTENT);
+            email = itemView.findViewById(R.id.tvFeedbacksEmail);
+            content = itemView.findViewById(R.id.tvFeedbacksContent);
         }
     }
 

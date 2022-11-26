@@ -30,7 +30,6 @@ import com.jdawidowska.equipmentrentalservice.R;
 import com.jdawidowska.equipmentrentalservice.activities.LoginActivity;
 import com.jdawidowska.equipmentrentalservice.activities.admin.adapters.AdminInventoryAdapter;
 import com.jdawidowska.equipmentrentalservice.api.ApiEndpoints;
-import com.jdawidowska.equipmentrentalservice.api.dto.response.UserRentedInventoryResponse;
 import com.jdawidowska.equipmentrentalservice.model.Inventory;
 import com.jdawidowska.equipmentrentalservice.util.ApiUtils;
 import com.jdawidowska.equipmentrentalservice.util.AuthTokenHolder;
@@ -213,7 +212,7 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
         EditText etItemAmount = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_item_amount);
         //buttons
         Button btnAddItem = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_add_item_button);
-        Button btnReturn = addEquipmentPopUpView.findViewById(R.id.add_equipment_popup_return_button);
+        Button btnReturn = addEquipmentPopUpView.findViewById(R.id.btnReturnRentPopup);
 
         dialogBuilder.setView(addEquipmentPopUpView);
         AlertDialog dialog = dialogBuilder.create();
@@ -258,16 +257,9 @@ public class AdminInventoryActivity extends AppCompatActivity implements AdminIn
                 ADD_INVENTORY_URL,
                 body,
                 response -> {
-
-                    //moze tych linijek brakuje ?
-                    /*UserRentedInventoryResponse responseClicked = userRentedInventoryList.get(position);
-                    if (responseClicked.getAmount() == 1) {
-                        userRentedInventoryList.remove(position);
-                        adapter.notifyItemRemoved(position);
-                    }
                     adapter.notifyDataSetChanged();
-                    userRentedInventoryList.clear();
-                    fetchCurrentlyRentedInventory();*/
+                    inventoryList.clear();
+                    fetchInventory();
 
                     addItemDialog.dismiss();
                     Toast.makeText(this, "Item added", Toast.LENGTH_SHORT).show();

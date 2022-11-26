@@ -50,14 +50,13 @@
         android:id="@+id/btnInventoryAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add equipment"
-        android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
+        android:text="Add equipment"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/btnReturnInventory"
         app:layout_constraintTop_toTopOf="@id/btnReturnInventory"
 
-        />
+        tools:layout_editor_absoluteY="823dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

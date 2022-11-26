@@ -38,14 +38,13 @@
 
     <Button
         android:id="@+id/btnReturnUserMenu"
-        android:text="Return"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
+        android:text="Logout"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

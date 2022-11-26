@@ -29,7 +29,7 @@ public class AdminRentedInventoryAdapter extends RecyclerView.Adapter<AdminRente
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.txtRecycleViewHistoryAdminReturn);
+            name = itemView.findViewById(R.id.tvAdminUsersRowName);
             surname = itemView.findViewById(R.id.RItxtRecycleViewUserSURNAME1);
             item = itemView.findViewById(R.id.RIRecycleViewITEM);
             amount = itemView.findViewById(R.id.RItxtRecycleViewAMOUNT);

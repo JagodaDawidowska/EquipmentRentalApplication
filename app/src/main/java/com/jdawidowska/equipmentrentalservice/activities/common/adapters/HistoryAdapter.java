@@ -30,7 +30,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             super(itemView);
             item = itemView.findViewById(R.id.txtRecycleViewHistoryAdminItem);
             rentDate = itemView.findViewById(R.id.txtRecycleViewHistoryAdminRent);
-            returnDate = itemView.findViewById(R.id.txtRecycleViewHistoryAdminReturn);
+            returnDate = itemView.findViewById(R.id.tvAdminUsersRowName);
         }
     }
 

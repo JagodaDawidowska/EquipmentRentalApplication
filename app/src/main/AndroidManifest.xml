@@ -2,61 +2,66 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jdawidowska.equipmentrentalservice">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EquipmentRentalService">
+        android:theme="@style/Theme.EquipmentRentalService"
+        android:usesCleartextTraffic="true">
+
+        <!-- general activities -->
         <activity
-            android:name=".userpackage.UserRentalsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adminpackage.UsersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adminpackage.InventoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".userpackage.HistoryUserRentalsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".userpackage.RentEquipmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".userpackage.MenuUserActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".adminpackage.FeedbacksActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".adminpackage.RentalsActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".adminpackage.MenuAdminActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+
+        <!-- user activities -->
+        <activity
+            android:name=".activities.user.UserMenuActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".activities.user.UserRentingActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.user.UserCurrentlyRentedActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.user.UserRentingHistoryActivity"
+            android:exported="false" />
+
+        <!-- admin activities -->
+        <activity
+            android:name=".activities.admin.AdminUserHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminInventoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminFeedbacksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminRentedInventoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminMenuActivity"
+            android:exported="true" />
     </application>
-
 </manifest>

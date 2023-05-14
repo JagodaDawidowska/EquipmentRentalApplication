@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popup_addequipment"
+    android:layout_width="350dp"
+    android:layout_height="190dp"
+    android:layout_gravity="center"
+    android:bottomLeftRadius="20dp"
+    android:bottomRightRadius="20dp"
+    android:rotationX="-360"
+    android:topLeftRadius="20dp"
+    android:topRightRadius="20dp"
+    app:circularflow_defaultRadius="20dp"
+    app:layout_constraintCircleRadius="20dp"
+    tools:layout_editor_absoluteX="30dp"
+    tools:layout_editor_absoluteY="66dp">
+
+    <Button
+        android:id="@+id/add_equipment_popup_add_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="Add"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnReturnRentPopup"
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_amount" />
+
+    <Button
+        android:id="@+id/btnReturnRentPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="Return"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_amount" />
+
+    <EditText
+        android:id="@+id/add_equipment_popup_item_amount"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#94A3F6"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add amount"
+        android:inputType="textPersonName"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:circularflow_defaultRadius="20dp"
+        app:layout_constraintCircleRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_equipment_popup_item_name" />
+
+    <EditText
+        android:id="@+id/add_equipment_popup_item_name"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="#94A3F6"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Add your equipment (name)"
+        android:inputType="textPersonName"
+        app:layout_constraintCircleRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

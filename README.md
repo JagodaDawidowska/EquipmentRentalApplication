@@ -41,6 +41,9 @@ Activities common for user and admin
 
 MAIN PANEL 
 <img src="C:\Users\murba\Desktop\RENATAL SERVICE READ Me\main.jpg" width="300" /> <img src="C:\Users\murba\Desktop\RENATAL SERVICE READ Me\main.jpg" width="300" />
+
+<img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="300" />
+
 ![Screenshot_2023 07 10_17 56 49 915](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80)
 
 

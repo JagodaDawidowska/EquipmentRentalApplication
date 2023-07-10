@@ -1,9 +1,46 @@
 # EquipmentRentalApplication
-Android client application for Rental Service 
 
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Project Status](#project-status)
+* [View](#view)
+
+
+## General Information
+The application handle accounts for both the rental administrator and the user.
+The systemprovide a way to identify and authenticate users. Security "In terms of security, the application utilizes Json Web Tokens. 
+Tokens expire after 15 minutes and user have to reapeat login process.
+
+
+## Technologies Used
+- Android Studio - Used for application development 
+- Volley - Libirabry for handling network requests
+- Recycle View - Libary for creating custom views
+- JWT - Json Web Token handling for security(Authentycation and authorization)
+- Language - Java
+
+
+## Features
+The functionalities the application fulfill: 
+- Equipment rental and return by the user.
+- Monitoring the availability and rentals of equipment.
+- Generating rental histories for a specific user.
+- Providing feedback to the rental administrator.
+- Registering new users.
+- Adding and removing equipment by the administrator.
+- Displaying user information and their reviews.
+
+
+## Project Status
+Project is: Close
+
+## View
 Activities common for user and admin
 
 MAIN PANEL 
+<img src="C:\Users\murba\Desktop\RENATAL SERVICE READ Me\main.jpg" width="300" /> <img src="C:\Users\murba\Desktop\RENATAL SERVICE READ Me\main.jpg" width="300" />
 ![Screenshot_2023 07 10_17 56 49 915](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80)
 
 

@@ -44,8 +44,11 @@ MAIN PANEL
 
 <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="400" />
 <div style="display: flex;">
+  
+  Register activity
   <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="400" />
-  <img src="ścieżka/do/Drugiego/zdjęcia.jpg" width="400" />
+  Login acivity
+  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80" width="400" />
 </div>
 
 ![Screenshot_2023 07 10_17 56 49 915](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80)

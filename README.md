@@ -41,12 +41,21 @@ Activities common for user and admin
 
 MAIN PANEL 
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-  <div>Register activity</div>
-  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="400" />
-  <div>Login activity</div>
-  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80" width="400" />
+<div style="display: flex; align-items: center;">
+    <div>
+    <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/6ee9bd25-c1f9-4aa4-8d37-0cfd7e8b31be" width="400" />
+    <div>Menu activity</div>
+  </div>
+  <div>
+    <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="400" />
+    <div>Register activity</div>
+  </div>
+  <div>
+    <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80" width="400" />
+    <div>Login activity</div>
+  </div>
 </div>
+
 
 ![Screenshot_2023 07 10_17 56 49 915](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80)
 

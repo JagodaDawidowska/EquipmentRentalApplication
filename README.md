@@ -41,94 +41,73 @@ Activities common for user and admin
 
 MAIN PANEL 
 
-<div align="center">
-  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/6ee9bd25-c1f9-4aa4-8d37-0cfd7e8b31be" width="300" />
-  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f6989852-7d93-42e1-83da-cd6a117a3a19" width="300" />
-  <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80" width="300" />
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/6ee9bd25-c1f9-4aa4-8d37-0cfd7e8b31be" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/e5be7424-263e-4c9d-8a56-082ba1d82980)" width="300" title="Patch: 1" />
+     <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/40a583f8-dfbb-4d9d-8ecc-2f6a0e587983)" width="300" title="Patch: 1" />
 </div>
-
-<div align="center">
-  <p><strong>Menu activity</strong></p>
-  <p><strong>Register activity</strong></p>
-  <p><strong>Login activity</strong></p>
-</div>
-
-
-![Screenshot_2023 07 10_17 56 49 915](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3f396429-4d81-4abe-a12e-5b8a8ef26a80)
-
-
-Register activity
-![Screenshot_2023 06 16_18 01 17 447](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/d2b055e6-6d09-461d-b147-192fce68305f)
-
-
-Login acivity
-![Screenshot_2023 07 10_17 57 25 281](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/2a8fcbd4-23e1-4322-99f1-03d169185ba9)
+</body>
 
 
 
 
 USER PANEL
 
-Menu for user
-![Screenshot_2023 01 30_20 25 47 193](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/7fff290a-2b0b-46ef-b803-00e7410a9f32)
 
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/fe402b25-3018-4b6c-ba10-b20b9cbd07ce" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/2fe5ffca-084e-4d50-a83a-82a050ec5066" width="300" title="Patch: 1" />
+     <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/3c45c724-e4a3-48a9-b6c6-b75374fef2d5" width="300" title="Patch: 1" />
+</div>
+</body>
 
-Renting activity 
-![Screenshot_2023 07 10_17 58 11 731](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/7c32c12d-0bff-457c-a876-12c13e036ef3)
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/8c88071b-0a21-4cf5-b46a-b3bfd16f4c65" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/b734d2c6-05d2-431b-908c-bc2efdceeaf3" width="300" title="Patch: 1" />
+     <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/9e437ce6-c2d5-4d60-ad00-21a218300dc3" width="300" title="Patch: 1" />
+</div>
+</body>
 
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/2562058a-3a89-45b5-ba5c-a15ff9c6b68d" width="300" title="Patch: 1" />
 
-Sucess rent
-![Screenshot_2023 07 10_17 58 16 048](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/bcfaa0ea-e0f4-499f-ac44-7fbe32da9303)
-
-
-User renatals activity for returning the equipment
-![Screenshot_2023 07 10_17 59 13 247](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/077ce94b-ceb2-4cc8-8e9b-75cabffbbdf5)
-
-User renatls activity, add the feedback while returning the equipment
-![Screenshot_2023 07 10_18 15 32 382](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/8c927cd3-c8bf-4073-9435-91b85662fdda)
-
-
-History Activity
-![Screenshot_2023 07 10_17 59 23 865](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/e034a7af-b239-4e00-a21d-0e4a4bf2d996)
+</div>
+</body>
 
 
 ADMIN PANEL
 
 
-Menu for admin
-![Screenshot_2023 07 10_18 23 26 949](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/836b74fa-8a33-4d17-a69d-b06a26416b58)
+
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/9eea48e9-f4a4-452d-9d4d-c305219ff331" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/487b99bb-63ed-4d53-b41a-0bb6ef185ac6" width="300" title="Patch: 1" />
+     <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/436753d9-6c01-4f50-8c81-98573cb7c606" width="300" title="Patch: 1" />
+</div>
+</body>
+
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/fce02388-52d6-49b9-b0e2-204a8a05fa56)" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f0307b76-2c47-4e1f-bfc6-3068cddc49d1" width="300" title="Patch: 1" />
+     <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/e34a348a-1705-49f9-a194-77cb40c4a241" width="300" title="Patch: 1" />
+</div>
+</body>
+
+<body>
+ <div style="float:right">
+       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/28d3cff8-ab1b-4567-a908-e0f826434e75" width="300" title="Patch: 1" />
+      <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/093acd79-c78f-4e03-ae03-f66cbc8d2b0c" width="300" title="Patch: 1" />
+</div>
+</body>
 
 
-Inventory activity
-![Screenshot_2023 07 10_18 25 42 465](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/1f268a46-8a00-484d-b665-228f06339c56)
 
-
-Inventory activity removing equipment form inventory
-![Screenshot_2023 07 10_18 27 11 432](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/50a15b66-69a7-43d4-805e-cc304a057d3f)
-
-
-Inventory activity removing equiment fail
-![Screenshot_2023 07 10_18 28 27 200](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/ec42a8cd-5318-4567-b012-5fdcc5551653)
-
-
-Inventory activity add equipment option
-![Screenshot_2023 07 10_18 30 01 300](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/919d011d-2d9e-423c-8f8d-a0cf48762727)
-
-
-Rented Inventory activity 
-![Screenshot_2023 07 10_18 31 48 283](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/794424c4-2da9-4d4d-b49a-01101c8faabc)
-
-
-User activity for admin
-![Screenshot_2023 07 10_18 33 06 033](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/9ef098f9-99d2-44fc-9140-9bac91f67fe1)
-
-
-User activity for admin after sumiting searching user history 
-![Screenshot_2023 07 10_18 35 24 317](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/6da080cd-62b4-4fd1-b5c0-b8e184609429)
-
-
-Feedback activity 
-![Screenshot_2023 07 10_18 37 38 833](https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/f7d8a6b3-6706-4921-b1c2-e47b44643e4d)
 
 
 

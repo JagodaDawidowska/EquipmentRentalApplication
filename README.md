@@ -9,32 +9,33 @@
 
 
 ## General Information
-The application handle accounts for both the rental administrator and the user.
-The systemprovide a way to identify and authenticate users. Security "In terms of security, the application utilizes Json Web Tokens. 
-Tokens expire after 15 minutes and user have to reapeat login process.
+This application handles accounts for an administrator and a user.
+The system provides a way to identify and authenticate users. 
+In terms of security, the application utilizes Json Web Tokens. 
+Tokens expires after 15 minutes and user has to repeat login process.
 
 
 ## Technologies Used
 - Android Studio - Used for application development 
-- Volley - Libirabry for handling network requests
-- Recycle View - Libary for creating custom views
-- JWT - Json Web Token handling for security(Authentycation and authorization)
+- Volley - Libary for handling network requests
+- Recycle View - Library for creating custom views
+- JWT - Json Web Token handling for security (authentication and authorization)
 - Language - Java
 
 
 ## Features
-The functionalities the application fulfill: 
-- Equipment rental and return by the user.
-- Monitoring the availability and rentals of equipment.
-- Generating rental histories for a specific user.
-- Providing feedback to the rental administrator.
-- Registering new users.
-- Adding and removing equipment by the administrator.
-- Displaying user information and their reviews.
+The functionalities this application fulfills: 
+- equipment rental and return by the user.
+- monitoring the availability and rentals of equipment.
+- generating rental histories for a specific user.
+- providing feedback to the rental administrator.
+- registering new users.
+- adding and removing equipment by the administrator.
+- displaying user information and their reviews.
 
 
 ## Project Status
-Project is: Close
+Project is: Finished
 
 ## View
 Activities common for user and admin
@@ -105,34 +106,3 @@ ADMIN PANEL
       <img src="https://github.com/JagodaDawidowska/EquipmentRentalApplication/assets/107955890/093acd79-c78f-4e03-ae03-f66cbc8d2b0c" width="30%" title="Patch: 1" />
 </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
